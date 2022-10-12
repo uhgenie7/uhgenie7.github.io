@@ -41,7 +41,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'CS',
-      items: ['dev/cs/introduction'],
+      items: ['dev/cs/stale-while-revalidate'],
     },
     {
       type: 'category',

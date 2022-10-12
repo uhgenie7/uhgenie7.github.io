@@ -4,6 +4,6 @@ sidebar_position: 2
 slug: /books/
 ---
 
-# Index
+# 목차
 
 - [클린코드](./clean-code/introduction.md)
