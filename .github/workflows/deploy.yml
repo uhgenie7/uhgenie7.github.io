@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    # 트리거, 경로 등을 추가로 정의하려면 gh 액션 문서를 참고하세요.
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build website
+        run: yarn build
+
+      # 깃허브 페이지에 배포하기 위한 일반적인 액션
+      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # `gh-pages` 브랜치에 게시할 결과물을 빌드합니다.
+          publish_dir: ./build
+          # 다음 줄에서는 `gh-pages` 브랜치에 배포하기 위해
+          # 공식 GH-Actions 봇에 커밋 권한을 할당합니다.
+          # https://github.com/actions/checkout/issues/13#issuecomment-724415212
+          # 아래 2개 필드를 지정하지 않으면 GH 액션 봇이 기본적으로 사용됩니다.
+          # 자신의 자격증명으로 교체할 수 있습니다.
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
