@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[996],{8758:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"fixed"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[782],{8055:e=>{e.exports=JSON.parse('{"label":"cache","permalink":"/en/blog/tags/cache","allTagsPath":"/en/blog/tags","count":1}')}}]);

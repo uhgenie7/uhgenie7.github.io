@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[561],{4577:e=>{e.exports=JSON.parse('{"title":"ALL","items":[{"title":"Stale While Revalidate","permalink":"/blog/stale-while-revalidate/stale-while-revalidate"}]}')}}]);
