@@ -4,4 +4,4 @@ sidebar_position: 1
 slug: /dev/
 ---
 
-# Index
+개발을 이야기 합니다.
