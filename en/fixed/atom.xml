@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://uhgenie7.github.io/en/fixed</id>
+    <title>Genie's Dev Blog Blog</title>
+    <updated>2022-10-12T08:09:52.430Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://uhgenie7.github.io/en/fixed"/>
+    <subtitle>Genie's Dev Blog Blog</subtitle>
+    <icon>https://uhgenie7.github.io/en/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[test]]></title>
+        <id>/test</id>
+        <link href="https://uhgenie7.github.io/en/fixed/test"/>
+        <updated>2022-10-12T08:09:52.430Z</updated>
+    </entry>
+</feed>
