@@ -68,9 +68,9 @@ const config = {
         },
         items: [
           { to: '/docs/dev/', label: '개발', position: 'left' },
-          { to: '/docs/books/', label: '책', position: 'left' },
           { to: '/fixed', label: '에러해결', position: 'left' },
           { to: '/blog', label: '기록', position: 'left' },
+          { to: '/docs/books/', label: '책', position: 'left' },
           {
             href: 'https://github.com/uhgenie7/uhgenie7.github.io',
             label: 'GitHub',

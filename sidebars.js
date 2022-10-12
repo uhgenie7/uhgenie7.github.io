@@ -35,43 +35,23 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'JS & TS',
+      items: ['dev/jsts/introduction'],
+    },
+    {
+      type: 'category',
       label: 'CS',
       items: ['dev/cs/introduction'],
     },
     {
       type: 'category',
-      label: 'CSS',
-      items: ['dev/css/introduction'],
+      label: 'Git',
+      items: ['dev/git/introduction'],
     },
     {
       type: 'category',
       label: 'ETC',
       items: ['dev/etc/introduction'],
-    },
-    {
-      type: 'category',
-      label: 'HTML',
-      items: ['dev/html/introduction'],
-    },
-    {
-      type: 'category',
-      label: 'JS',
-      items: ['dev/js/introduction'],
-    },
-    {
-      type: 'category',
-      label: 'TS',
-      items: ['dev/ts/introduction'],
-    },
-    {
-      type: 'category',
-      label: 'NextJS',
-      items: ['dev/next/introduction'],
-    },
-    {
-      type: 'category',
-      label: 'Git',
-      items: ['dev/git/introduction'],
     },
   ],
   books: [
