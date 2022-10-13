@@ -60,6 +60,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: 'keywords',
+          content: '지니, genie, 기술블로그, 프론트엔드, 개발',
+        },
+      ],
       navbar: {
         title: "Genie's Dev Blog",
         logo: {

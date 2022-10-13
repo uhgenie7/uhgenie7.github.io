@@ -46,7 +46,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Git',
-      items: ['dev/git/introduction'],
+      items: ['dev/git/sync-repository'],
     },
     {
       type: 'category',
