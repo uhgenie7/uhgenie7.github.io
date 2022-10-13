@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[121],{8070:e=>{e.exports=JSON.parse('[{"label":"stale-while-revalidate","permalink":"/en/docs/tags/stale-while-revalidate","count":1},{"label":"cache","permalink":"/en/docs/tags/cache","count":1}]')}}]);
