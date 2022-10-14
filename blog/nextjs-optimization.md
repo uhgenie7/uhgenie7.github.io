@@ -154,21 +154,21 @@ export default function Document() {
 메인 화면의 `/api/posts`라는 키를 가진 `Allposts`가 캐시에 잘 담겼는지 확인해보았다. 해당 페이지에서 확인할 수 있었지만, 어느 곳에서도 캐시가 사라지지 않고 잘 담긴다는 것을 확인해보기 위해 일부러 `slug` 단일 페이지에서 `Allposts`캐시를 확인해보기로 했다.
 
 1. 먼저 `import { useSWRConfig } from 'swr';` 를 import 한다.
-2. ```tsx
-   const PostContent = () => {
-   const { cache } = useSWRConfig();
-   const { query } = useRouter();
-   const { data: post, error } = useSWR(
-     `/api/posts/${query.slug || null}`,
-     fetcher
-   );
+2. `cache.get('확인하고 싶은 key')`를 하여 캐시를 get 해올 수 있다.
 
-   const check = cache.get('/api/posts');
-   console.log(check);
-   //...
+   ```tsx
+     const PostContent = () => {
+     const { cache } = useSWRConfig();
+     const { query } = useRouter();
+     const { data: post, error } = useSWR(
+       `/api/posts/${query.slug || null}`,
+       fetcher
+     );
+
+     const check = cache.get('/api/posts'); <- 여기
+     console.log(check);
+     //...
    ```
-
-   - cache.get('확인하고 싶은 key')를 하여 캐시를 get 해올 수 있다.
 
 3. 캐시가 담기기 전에는 undefined로 아무것도 담기지 않았다.
    ![캐시가 담기기 전](./images/cashetest1.png)
