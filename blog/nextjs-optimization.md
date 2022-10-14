@@ -29,12 +29,12 @@ date: '2022-10-14'
 const Meta = () => {
   return (
     <>
-      <meta charSet='utf-8' />
+      <meta charSet="utf-8" />
       <meta
-        name='viewport'
-        content='width=device-width, initial-scale=1, shrink-to-fit=no'
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <meta name='keywords' content='nextjs, 지니, 블로그' />
+      <meta name="keywords" content="nextjs, 지니, 블로그" />
       // ...
     </>
   );
@@ -51,7 +51,7 @@ import Meta from '@src/components/Meta';
 
 export default function Document() {
   return (
-    <Html lang='ko'>
+    <Html lang="ko">
       <Head>
         <Meta />
       </Head>
@@ -130,9 +130,56 @@ export default function Document() {
 
 - 기본적인 번들인 것 같아서 트리 쉐이킹하진 않았다.
 
+### 5. 캐싱 이용하기
+
+#### swr
+
+[swr](https://swr.vercel.app/ko)을 이용하여 캐싱을 이용하였다.
+
+> swr: 캐시(스태일)로부터 데이터를 반환한 후, fetch 요청(재검증)을 하고, 최종적으로 최신화된 데이터를 가져오는 전략
+
+1. fetcher 함수를 생성
+2. 부모 컴포넌트에 `<SWRConfig value={{ fallback }}>`을 감싼 뒤
+3. 사용하고자 하는 컴포넌트나 페이지에 (부모 컴포넌트의 자식 컴포넌트) useSWR 훅을 사용
+   - 문법 `const { data, error } = useSWR(key, fetcher, 옵션)`
+   - key: 요청을 위한 **고유한 키** 문자열(또는 함수 / 배열 / null)
+   - fetcher: (옵션) 데이터를 가져오기 위한 함수를 반환하는 Promise
+   - 여기의 fetcher는 SWR의 key를 받고 데이터를 반환하는 비동기 함수이다
+   - `key`는 고유하므로 어디에서든 (페이지든, 컴포넌트든) 원한다면 데이터를 꺼내쓸 수 있다.
+   - 사이트의 특성에 따라 옵션을 자유롭게 부여한다. `ex: revalidateOnFocus = false`
+
+#### swr으로 캐시 확인하기
+
+캐시가 잘 담겼는지 궁금하다면 캐시 안을 확인해볼 수 있다.
+메인 화면의 `/api/posts`라는 키를 가진 `Allposts`가 캐시에 잘 담겼는지 확인해보았다. 해당 페이지에서 확인할 수 있었지만, 어느 곳에서도 캐시가 사라지지 않고 잘 담긴다는 것을 확인해보기 위해 일부러 `slug` 단일 페이지에서 `Allposts`캐시를 확인해보기로 했다.
+
+1. 먼저 `import { useSWRConfig } from 'swr';` 를 import 한다.
+2. ```tsx
+   const PostContent = () => {
+   const { cache } = useSWRConfig();
+   const { query } = useRouter();
+   const { data: post, error } = useSWR(
+     `/api/posts/${query.slug || null}`,
+     fetcher
+   );
+
+   const check = cache.get('/api/posts');
+   console.log(check);
+   //...
+   ```
+
+   - cache.get('확인하고 싶은 key')를 하여 캐시를 get 해올 수 있다.
+
+3. 캐시가 담기기 전에는 undefined로 아무것도 담기지 않았다.
+   ![캐시가 담기기 전](./images/cashetest1.png)
+4. 캐시를 담을 수 있도록 `/api/posts` key를 갖고 있는 메인 페이지로 이동했다가 되돌아오면 캐시가 담겨있는 것을 확인할 수 있다.
+   ![캐시가 담긴 후](./images/cashetest2.png)
+
 ## 최적화 이후, lighthouse 결과
 
 ![리팩터링후](./images/after-refactor.png)
+
+- 올 100을 맞으면 lighthouse가 꽃가루까지 날려준다.
 
 ## Reference
 
