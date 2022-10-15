@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[3561],{4577:e=>{e.exports=JSON.parse('{"title":"ALL","items":[{"title":"Introduction","permalink":"/en/blog/Introduction"},{"title":"NextJS \ud504\ub85c\uc81d\ud2b8 \ucd5c\uc801\ud654 \ud558\uae30","permalink":"/en/blog/nextjs-optimization"}]}')}}]);

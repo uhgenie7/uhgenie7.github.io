@@ -4,7 +4,7 @@
         <title>Genie's Dev Blog Blog</title>
         <link>https://uhgenie7.github.io/en/fixed</link>
         <description>Genie's Dev Blog Blog</description>
-        <lastBuildDate>Sat, 15 Oct 2022 05:42:49 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 Oct 2022 06:51:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[test]]></title>
             <link>https://uhgenie7.github.io/en/fixed/test</link>
             <guid>/test</guid>
-            <pubDate>Sat, 15 Oct 2022 05:42:49 GMT</pubDate>
+            <pubDate>Sat, 15 Oct 2022 06:51:33 GMT</pubDate>
         </item>
     </channel>
 </rss>

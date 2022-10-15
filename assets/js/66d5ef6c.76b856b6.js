@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[9228],{4087:e=>{e.exports=JSON.parse('[{"label":"\ucd5c\uc801\ud654","permalink":"/blog/tags/\ucd5c\uc801\ud654","count":1},{"label":"nextjs","permalink":"/blog/tags/nextjs","count":1}]')}}]);
