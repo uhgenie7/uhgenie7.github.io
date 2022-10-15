@@ -5,6 +5,10 @@ tags: [최적화, nextjs]
 date: '2022-10-14'
 ---
 
+NextJS가 제공하는 기능과 lighthouse를 기반으로 웹사이트를 최적화 해보는 시간을 가졌습니다.
+
+<!--truncate-->
+
 ## 최적화 하려는 프로젝트
 
 [nextjs-blog](nextjs-blog-challenge.vercel.app)
