@@ -2,8 +2,9 @@
 title: Stale While Revalidate
 description: stale-while-revalidate 이란?
 tags: [stale-while-revalidate, cache]
-date: '2022-10-12'
 image: https://i.imgur.com/mErPwqL.png
+last_update:
+  date: '2022-10-12'
 ---
 
 ## stale-while-revalidate?
