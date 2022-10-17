@@ -1,41 +1,20 @@
-# Website
+# 지니의 개발 블로그
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+이 블로그는 [Docusaurus 2](https://docusaurus.io/)로 만들어졌습니다.
 
-### Installation
+## 주소
 
-```
-$ yarn
-```
+[블로그](uhgenie7.github.io/)
 
-### Local Development
+## 목적
 
-```
-$ yarn start
-```
+- 새롭게 알게 된 것을 적용하고 기록합니다.
+- 에러와 해결한 과정을 기록합니다.
+- IT관련 서적을 읽고 기록합니다.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+---
 
-### Build
+### 티스토리에서 마이그레이션 중...
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- 티스토리가 복구되는대로 마이그레이션 진행 예정입니다.  
+  ![0%](https://progress-bar.dev/0)
