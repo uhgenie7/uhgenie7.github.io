@@ -15,7 +15,7 @@ NextJS가 제공하는 기능과 lighthouse를 기반으로 웹사이트를 최�
 
 ## 최적화 전, lighthouse 결과
 
-![리팩터링전](./images/before-refactor.png)
+![리팩터링전](./before-refactor.png)
 
 - SSG로 만들어져있는데다 기능이 많이 없어서 대부분의 성능이 이미 높은 상태였다.
 - 그러나 SSG로 만들어졌음에도 SEO의 점수가 낮기 때문에 SEO를 더 챙겨보기로 했다.
@@ -129,8 +129,8 @@ export default function Document() {
   });
   ```
 
-![번들 clinet](./images/bundle.png)
-![번들 clinet2](./images/bundle2.png)
+![번들 clinet](./bundle.png)
+![번들 clinet2](./bundle2.png)
 
 - 기본적인 번들인 것 같아서 트리 쉐이킹하진 않았다.
 
@@ -175,13 +175,13 @@ export default function Document() {
    ```
 
 3. 캐시가 담기기 전에는 undefined로 아무것도 담기지 않았다.
-   ![캐시가 담기기 전](./images/cashetest1.png)
+   ![캐시가 담기기 전](./cashetest1.png)
 4. 캐시를 담을 수 있도록 `/api/posts` key를 갖고 있는 메인 페이지로 이동했다가 되돌아오면 캐시가 담겨있는 것을 확인할 수 있다.
-   ![캐시가 담긴 후](./images/cashetest2.png)
+   ![캐시가 담긴 후](./cashetest2.png)
 
 ## 최적화 이후, lighthouse 결과
 
-![리팩터링후](./images/after-refactor.png)
+![리팩터링후](./after-refactor.png)
 
 - 올 100을 맞으면 lighthouse가 꽃가루까지 날려준다.
 

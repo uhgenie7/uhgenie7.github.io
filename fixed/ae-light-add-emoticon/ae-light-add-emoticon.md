@@ -334,21 +334,21 @@ include_once ('./admin.tail.php');
 ### 관리자 페이지
 
 - 관리자 페이지에 `이모티콘 관리`가 생겼습니다.
-  ![admin](./images/admin1.png)
+  ![admin](./admin1.png)
 
 - 넣고 싶은 아이콘을 입력하고 명령어도 `/`와 함께 적어줍니다.
-  ![add-imo](./images/admin2.png)
+  ![add-imo](./admin2.png)
 - 우측 상단에 `등록`을 눌러주면 등록 성공!
-  ![submit-imo](./images/admin3.png)
+  ![submit-imo](./admin3.png)
 
 ### 게시판에서 써보기
 
 - [이모티콘]을 누르면 등록된 이모티콘 목록이 보입니다.  
-  ![imo-list](./images/admin4.png)
+  ![imo-list](./admin4.png)
 
 - 댓글창에 아까 썼던 이모티콘 명령어`(ex: /test)`를 사용한 뒤 등록하면 이모티콘을 사용할 수 있습니다.
 
-  ![imo-list](./images/admin5.png)
+  ![imo-list](./admin5.png)
 
 ## Reference
 
