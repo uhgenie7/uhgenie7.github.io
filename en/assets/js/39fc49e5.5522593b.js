@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[8794],{1810:e=>{e.exports=JSON.parse('{"permalink":"/en/fixed/tags/\uc544\ubcf4\uce74\ub3c4-\uc5d0\ub514\uc158-\ub77c\uc774\ud2b8","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"\uc5d0\ub7ec \ud574\uacb0 \uae30\ub85d","blogTitle":"\uc5d0\ub7ec \ud574\uacb0"}')}}]);
