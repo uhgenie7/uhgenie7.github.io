@@ -31,7 +31,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'React',
-      items: ['dev/react/introduction'],
+      items: ['dev/react/nextjs-optimization/nextjs-optimization'],
     },
     {
       type: 'category',

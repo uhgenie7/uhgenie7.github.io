@@ -25,7 +25,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'ko',
-    locales: ['en', 'ko'],
+    locales: ['ko'],
   },
 
   presets: [
@@ -41,7 +41,7 @@ const config = {
           editUrl: 'https://github.com/uhgenie7/uhgenie7.github.io/edit/main/',
         },
         blog: {
-          blogSidebarTitle: 'ALL',
+          blogSidebarTitle: '최근 포스트',
           blogSidebarCount: 'ALL',
           showReadingTime: true,
           // Please change this to your repo.
@@ -53,6 +53,12 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'G-0M1NXJEK07',
+        },
+        gtag: {
+          trackingID: 'G-0M1NXJEK07',
         },
       }),
     ],
@@ -78,6 +84,7 @@ const config = {
           { to: '/fixed', label: '에러해결', position: 'left' },
           { to: '/blog', label: '기록', position: 'left' },
           { to: '/docs/books/', label: '책', position: 'left' },
+          { to: 'blog/archive', label: '블로그 아카이브', position: 'left' },
           {
             href: 'https://github.com/uhgenie7/uhgenie7.github.io',
             label: 'GitHub',
@@ -149,7 +156,7 @@ const config = {
         routeBasePath: 'fixed',
         path: 'fixed',
         blogTitle: '에러 해결',
-        blogSidebarTitle: 'ALL',
+        blogSidebarTitle: '최근 포스트',
         blogDescription: '에러 해결 기록',
       },
     ],
