@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[8485],{3416:e=>{e.exports=JSON.parse('{"label":"react-native","permalink":"/en/fixed/tags/react-native","allTagsPath":"/en/fixed/tags","count":3}')}}]);
