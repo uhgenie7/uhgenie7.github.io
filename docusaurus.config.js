@@ -60,6 +60,10 @@ const config = {
         gtag: {
           trackingID: 'G-0M1NXJEK07',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+        },
       }),
     ],
   ],
