@@ -2,8 +2,7 @@
 title: 리액트 네이티브 빌드 에러
 description: INSTALL_FAILED_VERSION_DOWNGRADE
 tags: [react-native]
-last_update:
-  date: '2022-10-19'
+date: '2022-10-19'
 ---
 
 기존에 설치된 앱이 있다면 삭제 후 재빌드하자.

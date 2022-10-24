@@ -2,8 +2,7 @@
 title: 리액트 네이티브 RSScreen 에러
 description: RNSScreen" was not found in the UIManager.
 tags: [react-native]
-last_update:
-  date: '2022-10-19'
+date: '2022-10-19'
 ---
 
 캐시를 지우거나 패키지 버전을 올려주세요.

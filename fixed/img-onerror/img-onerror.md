@@ -2,8 +2,7 @@
 title: img 태그에 대체 이미지 띄우기
 description: img 태그 404 Error를 대비해 대체 이미지 띄워봅시다
 tags: [html, img]
-last_update:
-  date: '2021-03-05'
+date: '2021-03-05'
 ---
 
 img 태그 404 Error를 대비해 대체 이미지 띄워봅시다

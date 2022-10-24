@@ -2,8 +2,7 @@
 title: 리액트 네이티브 Couldn't find a navigation object 에러
 description: Couldn't find a navigation object. Is your component inside NavigationContainer?
 tags: [react-native]
-last_update:
-  date: '2022-10-20'
+date: '2022-10-20'
 ---
 
 NavigationContainer 를 분명 넣어주었고, 잘만 돌아가던 RN이 갑자기 에러를 뿜을 때.
