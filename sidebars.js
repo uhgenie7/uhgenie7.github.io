@@ -41,7 +41,11 @@ const sidebars = {
     {
       type: 'category',
       label: 'CS',
-      items: ['dev/cs/stale-while-revalidate'],
+      items: [
+        'dev/cs/stale-while-revalidate/stale-while-revalidate',
+        'dev/cs/metrics/metrics',
+        'dev/cs/lcp/lcp',
+      ],
     },
     {
       type: 'category',
@@ -67,6 +71,7 @@ const sidebars = {
       items: [
         'books/frameworkless-front-end-development/introduction',
         'books/frameworkless-front-end-development/01',
+        'books/frameworkless-front-end-development/02',
       ],
     },
   ],
