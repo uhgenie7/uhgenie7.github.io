@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[6161],{6955:e=>{e.exports=JSON.parse('{"label":"styled-component","permalink":"/fixed/tags/styled-component","allTagsPath":"/fixed/tags","count":1}')}}]);
