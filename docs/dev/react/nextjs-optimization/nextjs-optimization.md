@@ -33,12 +33,12 @@ NextJS가 제공하는 기능과 lighthouse를 기반으로 웹사이트를 최�
 const Meta = () => {
   return (
     <>
-      <meta charSet="utf-8" />
+      <meta charSet='utf-8' />
       <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        name='viewport'
+        content='width=device-width, initial-scale=1, shrink-to-fit=no'
       />
-      <meta name="keywords" content="nextjs, 지니, 블로그" />
+      <meta name='keywords' content='nextjs, 지니, 블로그' />
       // ...
     </>
   );
@@ -55,7 +55,7 @@ import Meta from '@src/components/Meta';
 
 export default function Document() {
   return (
-    <Html lang="ko">
+    <Html lang='ko'>
       <Head>
         <Meta />
       </Head>
@@ -197,3 +197,4 @@ export default function Document() {
 - [Dynamic Import](https://nextjs.org/docs/advanced-features/dynamic-import)
 - [SWC](https://nextjs.org/docs/advanced-features/compiler)
 - [자바스크립트 크기 줄이기](https://nextjs.org/docs/going-to-production#reducing-javascript-size)
+- [읽어볼만한 아티클](https://www.patterns.dev/posts/nextjs-casestudy/)

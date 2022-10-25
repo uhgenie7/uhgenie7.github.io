@@ -144,7 +144,12 @@ const config = {
       },
     }),
   plugins: [
-    require.resolve('@cmfcmf/docusaurus-search-local'),
+    [
+      require.resolve('@cmfcmf/docusaurus-search-local'),
+      {
+        // Options here
+      },
+    ],
     [
       '@docusaurus/plugin-content-blog',
       {

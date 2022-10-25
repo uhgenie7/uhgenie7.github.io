@@ -203,3 +203,7 @@ CDN은 각 지역에 캐시 서버(PoP, Points of presence)를 분산 배치해,
 ## 7. 웹 렌더링 과정
 
 > [웹 렌더링](https://web.dev/rendering-on-the-web/)
+
+## 8. 웹 렌더링 패턴
+
+> [렌더링 패턴](https://www.patterns.dev/posts/rendering-introduction/)
