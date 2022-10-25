@@ -13,7 +13,6 @@ const config = {
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'uhgenie7', // Usually your GitHub org/user name.
@@ -153,6 +152,7 @@ const config = {
       },
     }),
   plugins: [
+    require.resolve('@cmfcmf/docusaurus-search-local'),
     [
       '@docusaurus/plugin-content-blog',
       {
