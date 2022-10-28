@@ -19,6 +19,10 @@ const config = {
   projectName: 'uhgenie7.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
+  i18n: {
+    defaultLocale: 'ko',
+    locales: ['ko'],
+  },
   presets: [
     [
       '@docusaurus/preset-classic',
