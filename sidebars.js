@@ -52,11 +52,6 @@ const sidebars = {
       label: 'Git',
       items: ['dev/git/sync-repository'],
     },
-    {
-      type: 'category',
-      label: 'ETC',
-      items: ['dev/etc/introduction'],
-    },
   ],
   books: [
     'books/introduction',
