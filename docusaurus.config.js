@@ -150,7 +150,7 @@ const config = {
         apiKey: 'a1a5ad97837eae7959cfe288db85cdcb',
         indexName: 'uhgenie7',
         appId: 'HOBLW4XRQQ',
-        contextualSearch: true,
+        contextualSearch: false,
       },
     }),
   plugins: [
