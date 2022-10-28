@@ -11,11 +11,11 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className='container'>
-        <h1 className='hero__title'>{siteConfig.title}</h1>
-        <p className='hero__subtitle'>{siteConfig.tagline}</p>
+      <div className="container">
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className='button button--secondary button--lg' to='/docs/dev'>
+          <Link className="button button--secondary button--lg" to="/docs/dev">
             기록 보러 가기
           </Link>
         </div>
@@ -27,10 +27,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description='Description will go into a meta tag in <head />'
-    >
+    <Layout title={`${siteConfig.title}`} description="지니의 개발 블로그">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
