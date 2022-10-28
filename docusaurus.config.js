@@ -76,7 +76,7 @@ const config = {
         title: "Genie's Dev Blog",
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           { to: '/docs/dev/', label: '개발', position: 'left' },
