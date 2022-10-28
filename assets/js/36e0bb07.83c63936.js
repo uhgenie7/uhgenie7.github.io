@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[4792],{6691:l=>{l.exports=JSON.parse('{"label":"algolia","permalink":"/blog/tags/algolia","allTagsPath":"/blog/tags","count":1}')}}]);
