@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[8894],{8894:(e,s,g)=>{g.r(s)}}]);
