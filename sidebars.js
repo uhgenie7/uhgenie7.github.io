@@ -50,7 +50,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Git',
-      items: ['dev/git/sync-repository'],
+      items: ['dev/git/sync-repository', 'dev/git/another-branch-push'],
     },
   ],
   books: [
