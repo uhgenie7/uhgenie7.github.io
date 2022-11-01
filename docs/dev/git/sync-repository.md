@@ -2,7 +2,8 @@
 title: Fork 한 Repository를 원본 Repository와 동기화하기
 description: sync fork 하는 방법을 알아봅시다
 tags: [git, fork, gitlab, github]
-date: '2022-10-13'
+last_update:
+  date: '2022-10-13'
 ---
 
 ## 언제 쓰이나요?

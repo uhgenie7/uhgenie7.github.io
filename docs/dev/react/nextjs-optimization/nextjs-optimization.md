@@ -2,7 +2,8 @@
 title: NextJS 프로젝트 최적화 하기
 description: NextJS가 제공하는 기능으로 최적화합니다
 tags: [최적화, nextjs]
-date: '2022-10-14'
+last_update:
+  date: '2022-10-14'
 ---
 
 NextJS가 제공하는 기능과 lighthouse를 기반으로 웹사이트를 최적화 해보는 시간을 가졌습니다.
@@ -33,12 +34,12 @@ NextJS가 제공하는 기능과 lighthouse를 기반으로 웹사이트를 최�
 const Meta = () => {
   return (
     <>
-      <meta charSet='utf-8' />
+      <meta charSet="utf-8" />
       <meta
-        name='viewport'
-        content='width=device-width, initial-scale=1, shrink-to-fit=no'
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-      <meta name='keywords' content='nextjs, 지니, 블로그' />
+      <meta name="keywords" content="nextjs, 지니, 블로그" />
       // ...
     </>
   );
@@ -55,7 +56,7 @@ import Meta from '@src/components/Meta';
 
 export default function Document() {
   return (
-    <Html lang='ko'>
+    <Html lang="ko">
       <Head>
         <Meta />
       </Head>

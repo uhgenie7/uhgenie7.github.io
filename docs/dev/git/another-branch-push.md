@@ -2,7 +2,8 @@
 title: 현재 작업한 브랜치를 다른 브랜치에 커밋하기
 description: 다른 브랜치에서 작업하고 있었을 때 다른 브랜치에 push 하기
 tags: [github, branch]
-date: '2022-10-30'
+last_update:
+  date: '2022-10-30'
 ---
 
 ## 언제 쓰이나요?

@@ -2,6 +2,8 @@
 title: 책 목록
 sidebar_position: 2
 slug: /books/
+last_update:
+  date: '2022-10-19'
 ---
 
 # 목차
