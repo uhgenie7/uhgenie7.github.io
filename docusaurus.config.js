@@ -66,6 +66,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'support_us',
+        content:
+          '이 웹사이트가 도움 되었다면  <a target="_blank" rel="noopener noreferrer" href="https://github.com/uhgenie7/uhgenie7.github.io">GitHub</a> ⭐️ 부탁드립니다.',
+        backgroundColor: '#25c2a0',
+        textColor: '#000',
+        isCloseable: true,
+      },
       metadata: [
         {
           name: 'keywords',
