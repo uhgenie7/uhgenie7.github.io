@@ -69,6 +69,7 @@ const sidebars = {
         'books/frameworkless-front-end-development/02',
         'books/frameworkless-front-end-development/03',
         'books/frameworkless-front-end-development/04',
+        'books/frameworkless-front-end-development/05',
       ],
     },
   ],
