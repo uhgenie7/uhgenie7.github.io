@@ -57,8 +57,8 @@ const sidebars = {
     'books/introduction',
     {
       type: 'category',
-      label: '클린코드',
-      items: ['books/clean-code/introduction'],
+      label: '이펙티브 타입스크립트',
+      items: ['books/effective-typescript/introduction'],
     },
     {
       type: 'category',
