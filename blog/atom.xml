@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://uhgenie7.github.io/blog</id>
     <title>Genie's Dev Blog Blog</title>
-    <updated>2022-11-04T08:19:57.000Z</updated>
+    <updated>2022-11-04T09:37:48.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://uhgenie7.github.io/blog"/>
     <subtitle>Genie's Dev Blog Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[도큐사우루스로 이사한 이유]]></title>
         <id>/why-docusaurus/why-docusaurus</id>
         <link href="https://uhgenie7.github.io/blog/why-docusaurus/why-docusaurus"/>
-        <updated>2022-11-04T08:19:57.000Z</updated>
+        <updated>2022-11-04T09:37:48.000Z</updated>
         <summary type="html"><![CDATA[블로그를 도큐사우루스로 이사한 이유]]></summary>
         <content type="html"><![CDATA[<p>머리도 식힐 겸, 블로그를 옮긴 이유에 대해 블로깅합니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="티스토리">티스토리<a class="hash-link" href="#티스토리" title="제목으로 바로 가기">​</a></h2><p><code>티스토리</code>로 개발 블로그를 사용하기 시작한 건 20.11.12 부터입니다.
 당시 티스토리 블로그를 사용한 이유는 그냥 새롭게 시작할 블로그가 필요했었습니다.<br>
