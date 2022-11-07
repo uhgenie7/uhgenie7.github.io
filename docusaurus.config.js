@@ -6,19 +6,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Genie's Dev Blog",
+  title: '지니의 개발 블로그',
   tagline: '어제보다 나은 오늘이 되기 위해 기록하는 블로그',
   url: 'https://uhgenie7.github.io',
   baseUrl: '/',
-  onBrokenLinks: 'ignore',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'uhgenie7', // Usually your GitHub org/user name.
   projectName: 'uhgenie7.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
-  trailingSlash: false,
   i18n: {
     defaultLocale: 'ko',
     locales: ['ko'],
@@ -79,11 +76,15 @@ const config = {
           name: 'keywords',
           content: '지니, genie, 기술블로그, 프론트엔드, 개발',
         },
+        {
+          name: 'google-site-verification',
+          content: 'vw5e-hCPOxt7S0IcYoBMBL-41uswTkZnnwVcTleP_oE',
+        },
       ],
       navbar: {
-        title: "Genie's Dev Blog",
+        title: '지니의 개발 블로그',
         logo: {
-          alt: 'My Site Logo',
+          alt: '블로그 로고',
           src: 'img/logo.png',
         },
         items: [
