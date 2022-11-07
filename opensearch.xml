@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>Genie&#39;s Dev Blog</ShortName>
-  <Description>Search Genie&#39;s Dev Blog</Description>
+  <ShortName>지니의 개발 블로그</ShortName>
+  <Description>Search 지니의 개발 블로그</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://uhgenie7.github.io/img/favicon.ico</Image>
   <Url type="text/html" method="get" template="https://uhgenie7.github.io/search?q={searchTerms}"/>
