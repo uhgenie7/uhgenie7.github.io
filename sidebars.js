@@ -36,7 +36,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'JS & TS',
-      items: ['dev/jsts/introduction'],
+      items: ['dev/jsts/variables/variables'],
     },
     {
       type: 'category',
