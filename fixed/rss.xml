@@ -50,8 +50,8 @@ in RNSScreen (at createAnimatedComponent.js:211)</p><h3 class="anchor anchorWith
         </item>
         <item>
             <title><![CDATA[아보카도 에디션 라이트에 이모티콘 기능 추가하기]]></title>
-            <link>https://uhgenie7.github.io/fixed/ae-light-add-emoticon/ae-light-add-emoticon</link>
-            <guid>/ae-light-add-emoticon/ae-light-add-emoticon</guid>
+            <link>https://uhgenie7.github.io/fixed/ae-light-add-emoticon</link>
+            <guid>/ae-light-add-emoticon</guid>
             <pubDate>Sat, 15 Oct 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[아보카도 에디션 라이트에 이모티콘을 추가합니다]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-들어가기-전에">1. 들어가기 전에<a class="hash-link" href="#1-들어가기-전에" title="제목으로 바로 가기">​</a></h2><p>아보카도 에디션 라이트에는 이모티콘창을 띄울 수는 있지만, 등록할 수 있는 방법이 없습니다.
@@ -68,8 +68,8 @@ in RNSScreen (at createAnimatedComponent.js:211)</p><h3 class="anchor anchorWith
         </item>
         <item>
             <title><![CDATA[다크모드 토글 시, 폰트가 깜빡이는 현상 (Feat. Styled-Component)]]></title>
-            <link>https://uhgenie7.github.io/fixed/fout/fout</link>
-            <guid>/fout/fout</guid>
+            <link>https://uhgenie7.github.io/fixed/fout</link>
+            <guid>/fout</guid>
             <pubDate>Tue, 06 Sep 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[결론적으로 Styled-Component 설정 문제]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="1-사건의-발단">1. 사건의 발단<a class="hash-link" href="#1-사건의-발단" title="제목으로 바로 가기">​</a></h2><p>전엔 못 본 거 같은데 다크모드 버튼을 토글할 때, 폰트가 깜빡이는 현상을 목격.</p><p>가장 먼저 든 생각은 이게 말로만 듣던 FOUC ('style이 적용되지 않은 내용'이 '깜빡'이는 현상) 인가? 라는 생각에 도달함</p><p>그러나 엄밀히 말해, 폰트만 이런 모습을 보이고 있는 것 같아서 FOUT(텍스트가 깜빡여보이는 현상. 즉, 브라우저가 웹 글꼴을 다운로드하기 전에 텍스트가 대체 글꼴로 렌더링되는 현상)으로 추측했음</p><p>말로만 듣던 FOUT를 목격하는 건 처음이라 당황스러우면서도 신나게 버그를 해결하기로 결심</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="2-해결-방법을-찾아보자">2. 해결 방법을 찾아보자<a class="hash-link" href="#2-해결-방법을-찾아보자" title="제목으로 바로 가기">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-글꼴-로드하는데-시간이-오래-걸려서일까">1) 글꼴 로드하는데 시간이 오래 걸려서일까?<a class="hash-link" href="#1-글꼴-로드하는데-시간이-오래-걸려서일까" title="제목으로 바로 가기">​</a></h3><ul><li><a href="https://web.dev/avoid-invisible-text/" target="_blank" rel="noopener noreferrer">글꼴 로드 중 보이지 않는 텍스트 방지</a><ul><li>해당 글은 font-display를 소개하고 있다. 이 css를 사용하면 글꼴이 준비되지 않았을 경우, 각 브라우저가 어떻게 대응하는지 알려주고 있다.</li><li>글을 참조하여 코드를 <a href="https://github.com/uhgenie7/portfolio2022/commit/1824116ddd63fdc6baec07ce84e43e75e9d3ddfa" target="_blank" rel="noopener noreferrer">수정</a>해보았다.</li><li><a href="https://github.com/uhgenie7/portfolio2022/commit/23a3c7b13ef6f16a395320bbbe323a55de1dde97" target="_blank" rel="noopener noreferrer">디버깅</a>도 해보았다.</li></ul></li></ul><p>그러나 해결되지 않았다. 라이브러리로 테스트를 했을 때, 아주 잘 렌더링되고 있었고 여전히 폰트 깜빡임 현상은 남아있었다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-애초에-어떻게-사용자-지정-폰트를-지정해주었는데">2) 애초에 어떻게 사용자 지정 폰트를 지정해주었는데?<a class="hash-link" href="#2-애초에-어떻게-사용자-지정-폰트를-지정해주었는데" title="제목으로 바로 가기">​</a></h3><p>처음부터 이런 일이 생긴 건 아니었다. 분명 사용자 지정 폰트를 지정한 뒤에 이런 일이 생겼다는 것을 발견할 수 있었다.<br>
@@ -82,8 +82,8 @@ network/font 탭에도 다크모드를 토글할 때마다 폰트가 계속 담�
         </item>
         <item>
             <title><![CDATA[img 태그에 대체 이미지 띄우기]]></title>
-            <link>https://uhgenie7.github.io/fixed/img-onerror/img-onerror</link>
-            <guid>/img-onerror/img-onerror</guid>
+            <link>https://uhgenie7.github.io/fixed/img-onerror</link>
+            <guid>/img-onerror</guid>
             <pubDate>Fri, 05 Mar 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[img 태그 404 Error를 대비해 대체 이미지 띄워봅시다]]></description>
             <content:encoded><![CDATA[<p>img 태그 404 Error를 대비해 대체 이미지 띄워봅시다</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="상황">상황<a class="hash-link" href="#상황" title="제목으로 바로 가기">​</a></h2><p>API로 이미지를 불러오는 도중, 이미지가 깨져 에러가 띄워지는 문제 발생.</p><p><img loading="lazy" alt="comedy 슬라이드가 깨진 모습" src="/assets/images/error1-daa4ae875213ee03484e6332ba287df2.png" width="1010" height="598" class="img_ev3q">
