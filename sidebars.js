@@ -31,20 +31,20 @@ const sidebars = {
     {
       type: 'category',
       label: 'React',
-      items: ['dev/react/nextjs-optimization/nextjs-optimization'],
+      items: ['dev/react/nextjs-optimization/index'],
     },
     {
       type: 'category',
       label: 'JS & TS',
-      items: ['dev/jsts/variables/variables'],
+      items: ['dev/jsts/variables/index'],
     },
     {
       type: 'category',
       label: 'CS',
       items: [
-        'dev/cs/stale-while-revalidate/stale-while-revalidate',
-        'dev/cs/metrics/metrics',
-        'dev/cs/lcp/lcp',
+        'dev/cs/stale-while-revalidate/index',
+        'dev/cs/metrics/index',
+        'dev/cs/lcp/index',
       ],
     },
     {
