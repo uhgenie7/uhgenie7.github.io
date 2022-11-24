@@ -16,6 +16,7 @@ const config = {
   organizationName: 'uhgenie7', // Usually your GitHub org/user name.
   projectName: 'uhgenie7.github.io', // Usually your repo name.
   deploymentBranch: 'gh-pages',
+  trailingSlash: false,
   i18n: {
     defaultLocale: 'ko',
     locales: ['ko'],
