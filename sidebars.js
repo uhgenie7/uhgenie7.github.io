@@ -40,6 +40,11 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'HTML & CSS',
+      items: ['dev/html & css/scrollbar-gutter/index'],
+    },
+    {
+      type: 'category',
       label: 'CS',
       items: [
         'dev/cs/stale-while-revalidate/index',
