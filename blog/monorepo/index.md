@@ -1,9 +1,8 @@
 ---
 title: Nx로 모노레포 도입하기
-description: 모노레포를 도입하면서 기록합니다.
+description: Nx로 react-native와 next를 올려보고자 했던 기록
 tags: [monorepo, 모노레포, nx]
-date: '2022-11-25'
-draft: true
+date: '2022-12-05'
 ---
 
 현재 모노레포 PoC(Proof of Concept) 중이기 때문에 기록용으로 남겨둡니다.
@@ -79,7 +78,184 @@ Nx는 `libs`라는 폴더 아래에 공통 요소를 묶어둘 수 있는데, �
 
 ### 2. Nx React-native Migrating
 
-1번의 경우, RN이나 React 등 라이브러리들이 최신 버전으로 빌드되기 때문에 기존 RN을 모노레포로 가져와 마이그레이션 할 때 버전을 유의깊게 보고 가져와야 에러가 나지 않는다.
+1번의 경우, RN이나 React 등 라이브러리들이 최신 버전으로 빌드되기 때문에 기존 RN을 모노레포로 가져와 마이그레이션 할 때 버전을 유의깊게 보고 가져와야 에러가 나지 않는다. 0.6x버전과 0.7x버전 react-native의 의존성도 상이하기 때문에 라이브러리 정리는 필수적이다.
+
+1. 기존 RN을 nx apps에 복사, 붙여넣어준다.
+   이 예에선 기존 프로젝트의 이름이 `my-native-app`인 것으로 한다.
+
+- root/apps/my-native-app
+
+:::note
+node module까지 복사해서 가져오면 시간이 오래 걸리니 삭제해서 가져오는 편이 더 빠름.
+:::
+
+2. 기존 RN에 있던 package.json의 의존성들을 root의 package.json에 옮겨적는다. root/apps/my-native-app/package.json의 의존성들은 '\*' 처리를 해주자.
+
+없는 라이브러리는 빌드할 때 자동으로 의존성을 추가해주는 것 같은데, 모든 것을 추가해주진 않아서 마이그레이션 할 때는 이처럼 하는 것이 좋다.
+
+```json title="root/package.json"
+"dependencies": {
+  // ...
+    "@react-native-async-storage/async-storage": "^1.15.5",
+    "@react-native-masked-view/masked-view": "0.2.6",
+    "@react-navigation/bottom-tabs": "^6.2.0",
+}
+```
+
+```json title="root/apps/my-native-app/package.json"
+"dependencies": {
+  // ...
+    "@react-native-async-storage/async-storage": "*",
+    "@react-native-masked-view/masked-view": "*",
+    "@react-navigation/bottom-tabs": "*",
+}
+```
+
+:::note
+다른 웹 프레임워크와는 달리 react-native는 Nx가 `통합 저장소`구조로 가져감에도 불구하고 프로젝트 내에 package.json을 두고 있다. 이는 react-native의 [자동연결](https://github.com/react-native-community/cli/blob/main/docs/autolinking.md) 기능 때문인 것 같다.
+:::
+
+3. apps/my-native-app/metro.config.js에 다음처럼 nrwl 모듈을 연결해준다.
+
+```js title="apps/my-native-app/metro.config.js"
+const { withNxMetro } = require('@nrwl/react-native');
+const { getDefaultConfig } = require('metro-config');
+
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts, assetExts },
+  } = await getDefaultConfig();
+  return withNxMetro({
+    transformer: {},
+    resolver: {},
+    // ...
+  });
+})();
+```
+
+4. ios 코드를 업데이트
+
+- `AppDelegate.m` 파일을 열기
+- `jsBundleURLForBundleRoot:@"index"` 를 `jsBundleURLForBundleRoot:@"apps/my-native-app/index"` 으로 바꿔써주기
+
+- Xcode workspace를 열기
+- `Build Phases` 클릭
+- `Bundle React Native code and images` 아래에 ENTRY_FILE 를 다음처럼 써준다.
+
+```
+export NODE_BINARY=node
+export ENTRY_FILE=./apps/my-native-app/index.js
+../node_modules/react-native/scripts/react-native-xcode.sh
+```
+
+5. android 코드를 업데이트
+
+- MainApplication.java 파일 열기
+- getJSMainModuleName() 에서 `"index"`를 `apps/my-native-app/index`로 변경
+
+```
+public class MainApplication extends Application implements ReactApplication {
+  private final ReactNativeHost mReactNativeHost =
+        // ...
+
+        @Override
+        protected String getJSMainModuleName() {
+          return "apps/my-native-app/index";
+        }
+      };
+  // ...
+}
+```
+
+6. 경로 설정 마무리하기
+
+```json title="apps/my-native-app/tsconfig.json"
+{
+  "extends": "../../tsconfig.base.json"
+}
+```
+
+```json title="nx.json"
+{
+  "projects": {
+    "my-native-app": {
+      "tags": []
+    }
+  }
+}
+```
+
+```json title="workspace.json"
+{
+  "version": 1,
+  "projects": {
+    "my-native-app": {
+      "root": "apps/my-native-app",
+      "sourceRoot": "apps/my-native-app/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "start": {
+          "builder": "@nrwl/react-native:start",
+          "options": {
+            "port": 8081
+          }
+        },
+        "run-ios": {
+          "builder": "@nrwl/react-native:run-ios",
+          "options": {}
+        },
+        "bundle-ios": {
+          "builder": "@nrwl/react-native:bundle",
+          "outputs": ["apps/my-native-app/build"],
+          "options": {
+            "entryFile": "apps/my-native-app/index.js",
+            "platform": "ios",
+            "bundleOutput": "dist/apps/my-native-app/ios/index.bundle"
+          }
+        },
+        "run-android": {
+          "builder": "@nrwl/react-native:run-android",
+          "options": {}
+        },
+        "build-android": {
+          "builder": "@nrwl/react-native:build-android",
+          "outputs": [
+            "apps/my-native-app/android/app/build/outputs/bundle",
+            "apps/my-native-app/android/app/build/outputs/apk"
+          ],
+          "options": {}
+        },
+        "bundle-android": {
+          "builder": "@nrwl/react-native:bundle",
+          "options": {
+            "entryFile": "apps/my-native-app/index.js",
+            "platform": "android",
+            "bundleOutput": "dist/apps/my-native-app/android/index.bundle"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/my-native-app/**/*.{js,ts,tsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/my-native-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+7. 빌드
+   `npx nx run-ios my-native-app`
+   `npx nx run-android my-native-app`
 
 ### 3. Nx NextJs
 
