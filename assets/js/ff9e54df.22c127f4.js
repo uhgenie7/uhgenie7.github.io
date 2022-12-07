@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[1280],{2919:e=>{e.exports=JSON.parse('{"label":"yarn-berry","permalink":"/blog/tags/yarn-berry","allTagsPath":"/blog/tags","count":1}')}}]);
