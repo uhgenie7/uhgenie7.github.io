@@ -2,8 +2,7 @@
 title: 도큐사우루스로 이사한 이유
 description: 블로그를 도큐사우루스로 이사한 이유
 tags: [docusaurus, blog]
-last_update:
-  date: '2022-10-20'
+date: '2022-10-20'
 ---
 
 머리도 식힐 겸, 블로그를 옮긴 이유에 대해 블로깅합니다.
