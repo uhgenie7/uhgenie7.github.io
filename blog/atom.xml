@@ -2,44 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://uhgenie7.github.io/blog</id>
     <title>지니의 개발 블로그 Blog</title>
-    <updated>2022-12-07T04:28:05.000Z</updated>
+    <updated>2022-12-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://uhgenie7.github.io/blog"/>
     <subtitle>지니의 개발 블로그 Blog</subtitle>
     <icon>https://uhgenie7.github.io/img/favicon.ico</icon>
-    <entry>
-        <title type="html"><![CDATA[도큐사우루스로 이사한 이유]]></title>
-        <id>/why-docusaurus</id>
-        <link href="https://uhgenie7.github.io/blog/why-docusaurus"/>
-        <updated>2022-12-07T04:28:05.000Z</updated>
-        <summary type="html"><![CDATA[블로그를 도큐사우루스로 이사한 이유]]></summary>
-        <content type="html"><![CDATA[<p>머리도 식힐 겸, 블로그를 옮긴 이유에 대해 블로깅합니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="티스토리">티스토리<a class="hash-link" href="#티스토리" title="제목으로 바로 가기">​</a></h2><p><code>티스토리</code>로 개발 블로그를 사용하기 시작한 건 20.11.12 부터입니다.
-당시 티스토리 블로그를 사용한 이유는 그냥 새롭게 시작할 블로그가 필요했었습니다.<br>
-<!-- -->한창 인기를 끌고 있었던 네이버 블로그는 일상 같은 것들을 적는 느낌이 강했고, 다음 블로그는 접근성이 떨어졌었죠.
-이글루스도 개발 블로그로 쓰기엔 부족했고 핫한 깃허브 블로그도 있었지만, 꼬꼬마 시절의 저는 블로그를 만들 생각조차 하지 못했던 것 같습니다.
-그리하여 개발하면서 알게 된 것들이나 이슈 등을 티스토리 블로그에 기록해왔습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="장점">장점<a class="hash-link" href="#장점" title="제목으로 바로 가기">​</a></h3><p>아래와 같은 이유 때문에 2년 간 티스토리를 떠나지 못했습니다.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-쉽게-로그인하여-글을-작성-수정할-수-있음">1. 쉽게 로그인하여 글을 작성, 수정할 수 있음.<a class="hash-link" href="#1-쉽게-로그인하여-글을-작성-수정할-수-있음" title="제목으로 바로 가기">​</a></h4><ul><li>가장 큰 이점이라고 생각합니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-카테고리를-쉽게-추가-변경-가능">2. 카테고리를 쉽게 추가, 변경 가능<a class="hash-link" href="#2-카테고리를-쉽게-추가-변경-가능" title="제목으로 바로 가기">​</a></h4><ul><li>당연하다고 생각했던 기능인데 당연한 건 세상에 없군요.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-seo가-잘-되어있음">3. SEO가 잘 되어있음<a class="hash-link" href="#3-seo가-잘-되어있음" title="제목으로 바로 가기">​</a></h4><ul><li>구글에 검색하면 티스토리가 정말 많이 뜹니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-코드블럭이-괜찮음">4. 코드블럭이 괜찮음...?<a class="hash-link" href="#4-코드블럭이-괜찮음" title="제목으로 바로 가기">​</a></h4><ul><li>코드 하이라이팅만 있어도 준수하다고 생각했지만... 코드를 복사 붙여넣기하면 탭 키가 들쭉날쭉입니다.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="단점">단점<a class="hash-link" href="#단점" title="제목으로 바로 가기">​</a></h3><p>하지만 티스토리를 쓰면 쓸수록 단점을 느끼게 됐습니다.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-폰트-크기">1. 폰트 크기<a class="hash-link" href="#1-폰트-크기" title="제목으로 바로 가기">​</a></h4><ul><li>노션처럼 제목, 소제목, 리스트, 내용 등을 쓰려면 에디터를 만져야 했는데 작성을 완료하고 보면 크기가 들쭉날쭉하여 가독성이 매우 떨어졌습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-왠지-모를-스킨의-불편함">2. 왠지 모를 스킨의 불편함<a class="hash-link" href="#2-왠지-모를-스킨의-불편함" title="제목으로 바로 가기">​</a></h4><ul><li>유명한 스킨을 두어 번 바꾸어봤는데 제 마음에 드는 것을 못 찾았습니다. 특히 스킨을 바꾸면 코드 블럭 설정 같은 걸 추가로 해주어야 하는데 이 과정이 생각보다 녹록치 않습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-있으나마나한-마크다운">3. 있으나마나한 마크다운<a class="hash-link" href="#3-있으나마나한-마크다운" title="제목으로 바로 가기">​</a></h4><ul><li>스킨과 함께 쓰면 마크다운이 잘 먹히지 않습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-잘-지워지지-않는-코드블럭이나-링크-등">4. 잘 지워지지 않는 코드블럭이나 링크 등<a class="hash-link" href="#4-잘-지워지지-않는-코드블럭이나-링크-등" title="제목으로 바로 가기">​</a></h4><ul><li>수정이 불편합니다.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="유목민-생활">유목민 생활<a class="hash-link" href="#유목민-생활" title="제목으로 바로 가기">​</a></h2><p>위의 단점 때문에 다른 블로그도 기웃거려보았습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="벨로그">벨로그<a class="hash-link" href="#벨로그" title="제목으로 바로 가기">​</a></h3><p>국내에 유명한 개발 블로그 중엔 벨로그를 빼놓을 수 없지만 카테고리 기능이 없다는 것이 제겐 너무 큰 단점으로 다가왔습니다.
-글이 많아지면 많아질수록 좌측에 태그 목록이 길어지는 것이 싫었고, 커스텀도 할 수 없다는 것이 단점이었습니다.
-당시 마크다운으로 적어야 하는 것도 불편했었습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="jekyll-git-blog">Jekyll Git blog<a class="hash-link" href="#jekyll-git-blog" title="제목으로 바로 가기">​</a></h3><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>노트</div><div class="admonitionContent_S0QG"><p>그래, 프론트엔드 개발자라면 내가 만든 블로그 하나 쯤은 있어야지!</p><small>과거의 어리석었던 나</small></div></div><p>그렇게 며칠 삽질했던 블로그가 있었습니다.
-단점은 일단 글을 쓰려면 저장소를 clone해야 합니다. 마크다운으로 적고 푸쉬까지 해야되는 불편함에 이건 뭔가 아닌 것 같다는 생각이 들었습니다.
-제가 몸 담고 있던 블로그들은 그냥 '글쓰기', '등록'만 누르면 되는 거였는데 말이죠.
-블로깅 자체가 너무 피곤하게 느껴져서 얼마 쓰지 못하고 맙니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="gatsby">gatsby<a class="hash-link" href="#gatsby" title="제목으로 바로 가기">​</a></h3><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>노트</div><div class="admonitionContent_S0QG"><p>그래, 블로그라면 개츠비지!</p><small>과거의 어리석었던 나</small></div></div><p>불과 한 달 전에 만들어보려고 했지만 플러그인이 정말 너무 너무 많습니다. 러닝커브가 높다고 느껴졌으며, md에서 mdx로 바꿔가는 과정도 정말 쉽지 않았습니다.
-버전이 서로 호환되지 않아 에러를 뿜어내기 일쑤였으며 피로감이 중첩되기 시작합니다...
-유명한 템플릿을 써보고자 했지만 빌드에 실패하고, 커스텀에 실패하고 터미널에서 붉은 글씨를 보지 않는 날이 없었습니다.
-뭔가 주객전도가 되어가는 가운데... Next로 블로그를 만들어보게 됩니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="nextjs">NextJS<a class="hash-link" href="#nextjs" title="제목으로 바로 가기">​</a></h3><p>넥스트도 블로그 템플릿이 있습니다.
-하지만 아주 조금 만져보았을 뿐인데도 넥스트는 블로그로 쓰기에는 그 쓰임새가 맞지 않는 것 같다는 느낌이 듭니다.
-개츠비만큼 다양한 플러그인이 없어서 하나부터 열까지 손이 너무 많이 갑니다.
-즉, 필요한 기능을 직접 개발해야 합니다.
-과제 덕에 가볍게 만들어보는 시간을 가졌지만, 이것을 진짜 블로그로 쓸 수 없을 것 같다는 느낌이 들었습니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="docusaurus">docusaurus!<a class="hash-link" href="#docusaurus" title="제목으로 바로 가기">​</a></h2><p><code>docusaurus</code>를 처음 알게 된 건 위의 gatsby 템플릿을 mdx로 바꾸는 여정 중에 알게 되었습니다.
-처음에는 <code>뭐야 또 mdx 같은 게 나온 건가?</code>하고 스쳐 지나갔지만 구글링을 하다가 docusaurus로 만든 블로그를 우연히 보고나서 본격적으로 관심을 갖게 되었습니다.
-이때의 저는 다음과 같은 블로그 기능을 원하고 있었습니다.</p><ul><li>작성이 편할 것</li><li>UIUX가 괜찮을 것</li><li>마크다운이 될 것</li><li>카테고리가 지원될 것</li><li>코드블럭에 타이틀을 달거나, line 강조가 되거나, 카피 기능 등이 있을 것</li><li>나를 위한 블로그와 남을 위한 블로그가 분리될 것<ul><li>이것은 요즘 들어 <code>개발 블로그</code>의 스타일이 <code>TIL</code>와 <code>개발 정보</code>로 갈라졌다고 느꼈기 때문입니다. (무지성 복사 붙여넣기 제외)</li><li>그래서 어떤 블로그의 형태를 취하면 좋을 지 지속적인 고민을 해왔습니다.</li><li>원래 저는 TIL과 에러해결 쪽에 중심을 두었지만, 남에게 도움을 주는 기록도 같이하고 싶었기 때문에 두 마리의 토끼를 모두 취하는 쪽을 선택하고 싶었습니다.</li></ul></li><li>React와 친화적일 것</li><li>md, mdx를 함께 사용할 수 있을 것</li></ul><p><code>docusaurus</code>는 위의 조건을 모두 부합하고도 남았습니다. 사이트가 한글로 되어있는 것은 물론이고 기능적으로 너무 좋아서 하루에도 몇 번씩 들여다보고 있습니다.
-<em>빌드도 너무 편하고 수정도 너무 편하고 최애 사이트가 될 것 같습니다.</em>
-그렇게 docusaurus 블로그를 개설하고 이곳에 정착하자고 마음을 먹을 때 즈음, 다음 블로그가 폐쇄되고 카카오의 블랙아웃으로 티스토리가 막히자 결심은 더 굳혀졌습니다.</p><p>물론 단점도 존재합니다.
-<code>docusaurus</code>는 원래 <code>doc</code>을 위한 것이라 블로그로 쓰기에는 약-간 불편함이 있습니다.
-카테고리의 부재, 댓글 기능이 그것인데요. 그것을 감안할만큼 잘 쓰고 있어서 만족합니다.
-카테고리 정도야 doc을 blog처럼 쓰면 되니까요.</p><p>갑자기 docusaurus을 찬양하는 글이 되어버렸는데, 관심이 생기신다면 시험삼아 docusaurus로 블로그를 만들어보세요. 금세 반하실 겁니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="사이트">사이트<a class="hash-link" href="#사이트" title="제목으로 바로 가기">​</a></h2><p><a href="https://docusaurus.io/ko/" target="_blank" rel="noopener noreferrer">docusaurus 사이트 들어가보기</a></p>]]></content>
-        <category label="docusaurus" term="docusaurus"/>
-        <category label="blog" term="blog"/>
-    </entry>
     <entry>
         <title type="html"><![CDATA[12월 프리온보딩 프론트엔드 챌린지 - 모노레포 시스템]]></title>
         <id>/pre-onboarding-frontend-monorepo-yarn</id>
@@ -118,6 +85,39 @@ Failed to start at Docker.Engines.LinuxkitDaemonStartup.<code>&lt;WaitAsync&gt;<
         <category label="algolia" term="algolia"/>
         <category label="도큐사우르스" term="도큐사우르스"/>
         <category label="검색" term="검색"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[도큐사우루스로 이사한 이유]]></title>
+        <id>/why-docusaurus</id>
+        <link href="https://uhgenie7.github.io/blog/why-docusaurus"/>
+        <updated>2022-10-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[블로그를 도큐사우루스로 이사한 이유]]></summary>
+        <content type="html"><![CDATA[<p>머리도 식힐 겸, 블로그를 옮긴 이유에 대해 블로깅합니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="티스토리">티스토리<a class="hash-link" href="#티스토리" title="제목으로 바로 가기">​</a></h2><p><code>티스토리</code>로 개발 블로그를 사용하기 시작한 건 20.11.12 부터입니다.
+당시 티스토리 블로그를 사용한 이유는 그냥 새롭게 시작할 블로그가 필요했었습니다.<br>
+<!-- -->한창 인기를 끌고 있었던 네이버 블로그는 일상 같은 것들을 적는 느낌이 강했고, 다음 블로그는 접근성이 떨어졌었죠.
+이글루스도 개발 블로그로 쓰기엔 부족했고 핫한 깃허브 블로그도 있었지만, 꼬꼬마 시절의 저는 블로그를 만들 생각조차 하지 못했던 것 같습니다.
+그리하여 개발하면서 알게 된 것들이나 이슈 등을 티스토리 블로그에 기록해왔습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="장점">장점<a class="hash-link" href="#장점" title="제목으로 바로 가기">​</a></h3><p>아래와 같은 이유 때문에 2년 간 티스토리를 떠나지 못했습니다.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-쉽게-로그인하여-글을-작성-수정할-수-있음">1. 쉽게 로그인하여 글을 작성, 수정할 수 있음.<a class="hash-link" href="#1-쉽게-로그인하여-글을-작성-수정할-수-있음" title="제목으로 바로 가기">​</a></h4><ul><li>가장 큰 이점이라고 생각합니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-카테고리를-쉽게-추가-변경-가능">2. 카테고리를 쉽게 추가, 변경 가능<a class="hash-link" href="#2-카테고리를-쉽게-추가-변경-가능" title="제목으로 바로 가기">​</a></h4><ul><li>당연하다고 생각했던 기능인데 당연한 건 세상에 없군요.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-seo가-잘-되어있음">3. SEO가 잘 되어있음<a class="hash-link" href="#3-seo가-잘-되어있음" title="제목으로 바로 가기">​</a></h4><ul><li>구글에 검색하면 티스토리가 정말 많이 뜹니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-코드블럭이-괜찮음">4. 코드블럭이 괜찮음...?<a class="hash-link" href="#4-코드블럭이-괜찮음" title="제목으로 바로 가기">​</a></h4><ul><li>코드 하이라이팅만 있어도 준수하다고 생각했지만... 코드를 복사 붙여넣기하면 탭 키가 들쭉날쭉입니다.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="단점">단점<a class="hash-link" href="#단점" title="제목으로 바로 가기">​</a></h3><p>하지만 티스토리를 쓰면 쓸수록 단점을 느끼게 됐습니다.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-폰트-크기">1. 폰트 크기<a class="hash-link" href="#1-폰트-크기" title="제목으로 바로 가기">​</a></h4><ul><li>노션처럼 제목, 소제목, 리스트, 내용 등을 쓰려면 에디터를 만져야 했는데 작성을 완료하고 보면 크기가 들쭉날쭉하여 가독성이 매우 떨어졌습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-왠지-모를-스킨의-불편함">2. 왠지 모를 스킨의 불편함<a class="hash-link" href="#2-왠지-모를-스킨의-불편함" title="제목으로 바로 가기">​</a></h4><ul><li>유명한 스킨을 두어 번 바꾸어봤는데 제 마음에 드는 것을 못 찾았습니다. 특히 스킨을 바꾸면 코드 블럭 설정 같은 걸 추가로 해주어야 하는데 이 과정이 생각보다 녹록치 않습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-있으나마나한-마크다운">3. 있으나마나한 마크다운<a class="hash-link" href="#3-있으나마나한-마크다운" title="제목으로 바로 가기">​</a></h4><ul><li>스킨과 함께 쓰면 마크다운이 잘 먹히지 않습니다.</li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-잘-지워지지-않는-코드블럭이나-링크-등">4. 잘 지워지지 않는 코드블럭이나 링크 등<a class="hash-link" href="#4-잘-지워지지-않는-코드블럭이나-링크-등" title="제목으로 바로 가기">​</a></h4><ul><li>수정이 불편합니다.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="유목민-생활">유목민 생활<a class="hash-link" href="#유목민-생활" title="제목으로 바로 가기">​</a></h2><p>위의 단점 때문에 다른 블로그도 기웃거려보았습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="벨로그">벨로그<a class="hash-link" href="#벨로그" title="제목으로 바로 가기">​</a></h3><p>국내에 유명한 개발 블로그 중엔 벨로그를 빼놓을 수 없지만 카테고리 기능이 없다는 것이 제겐 너무 큰 단점으로 다가왔습니다.
+글이 많아지면 많아질수록 좌측에 태그 목록이 길어지는 것이 싫었고, 커스텀도 할 수 없다는 것이 단점이었습니다.
+당시 마크다운으로 적어야 하는 것도 불편했었습니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="jekyll-git-blog">Jekyll Git blog<a class="hash-link" href="#jekyll-git-blog" title="제목으로 바로 가기">​</a></h3><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>노트</div><div class="admonitionContent_S0QG"><p>그래, 프론트엔드 개발자라면 내가 만든 블로그 하나 쯤은 있어야지!</p><small>과거의 어리석었던 나</small></div></div><p>그렇게 며칠 삽질했던 블로그가 있었습니다.
+단점은 일단 글을 쓰려면 저장소를 clone해야 합니다. 마크다운으로 적고 푸쉬까지 해야되는 불편함에 이건 뭔가 아닌 것 같다는 생각이 들었습니다.
+제가 몸 담고 있던 블로그들은 그냥 '글쓰기', '등록'만 누르면 되는 거였는데 말이죠.
+블로깅 자체가 너무 피곤하게 느껴져서 얼마 쓰지 못하고 맙니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="gatsby">gatsby<a class="hash-link" href="#gatsby" title="제목으로 바로 가기">​</a></h3><div class="theme-admonition theme-admonition-note alert alert--secondary admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>노트</div><div class="admonitionContent_S0QG"><p>그래, 블로그라면 개츠비지!</p><small>과거의 어리석었던 나</small></div></div><p>불과 한 달 전에 만들어보려고 했지만 플러그인이 정말 너무 너무 많습니다. 러닝커브가 높다고 느껴졌으며, md에서 mdx로 바꿔가는 과정도 정말 쉽지 않았습니다.
+버전이 서로 호환되지 않아 에러를 뿜어내기 일쑤였으며 피로감이 중첩되기 시작합니다...
+유명한 템플릿을 써보고자 했지만 빌드에 실패하고, 커스텀에 실패하고 터미널에서 붉은 글씨를 보지 않는 날이 없었습니다.
+뭔가 주객전도가 되어가는 가운데... Next로 블로그를 만들어보게 됩니다.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="nextjs">NextJS<a class="hash-link" href="#nextjs" title="제목으로 바로 가기">​</a></h3><p>넥스트도 블로그 템플릿이 있습니다.
+하지만 아주 조금 만져보았을 뿐인데도 넥스트는 블로그로 쓰기에는 그 쓰임새가 맞지 않는 것 같다는 느낌이 듭니다.
+개츠비만큼 다양한 플러그인이 없어서 하나부터 열까지 손이 너무 많이 갑니다.
+즉, 필요한 기능을 직접 개발해야 합니다.
+과제 덕에 가볍게 만들어보는 시간을 가졌지만, 이것을 진짜 블로그로 쓸 수 없을 것 같다는 느낌이 들었습니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="docusaurus">docusaurus!<a class="hash-link" href="#docusaurus" title="제목으로 바로 가기">​</a></h2><p><code>docusaurus</code>를 처음 알게 된 건 위의 gatsby 템플릿을 mdx로 바꾸는 여정 중에 알게 되었습니다.
+처음에는 <code>뭐야 또 mdx 같은 게 나온 건가?</code>하고 스쳐 지나갔지만 구글링을 하다가 docusaurus로 만든 블로그를 우연히 보고나서 본격적으로 관심을 갖게 되었습니다.
+이때의 저는 다음과 같은 블로그 기능을 원하고 있었습니다.</p><ul><li>작성이 편할 것</li><li>UIUX가 괜찮을 것</li><li>마크다운이 될 것</li><li>카테고리가 지원될 것</li><li>코드블럭에 타이틀을 달거나, line 강조가 되거나, 카피 기능 등이 있을 것</li><li>나를 위한 블로그와 남을 위한 블로그가 분리될 것<ul><li>이것은 요즘 들어 <code>개발 블로그</code>의 스타일이 <code>TIL</code>와 <code>개발 정보</code>로 갈라졌다고 느꼈기 때문입니다. (무지성 복사 붙여넣기 제외)</li><li>그래서 어떤 블로그의 형태를 취하면 좋을 지 지속적인 고민을 해왔습니다.</li><li>원래 저는 TIL과 에러해결 쪽에 중심을 두었지만, 남에게 도움을 주는 기록도 같이하고 싶었기 때문에 두 마리의 토끼를 모두 취하는 쪽을 선택하고 싶었습니다.</li></ul></li><li>React와 친화적일 것</li><li>md, mdx를 함께 사용할 수 있을 것</li></ul><p><code>docusaurus</code>는 위의 조건을 모두 부합하고도 남았습니다. 사이트가 한글로 되어있는 것은 물론이고 기능적으로 너무 좋아서 하루에도 몇 번씩 들여다보고 있습니다.
+<em>빌드도 너무 편하고 수정도 너무 편하고 최애 사이트가 될 것 같습니다.</em>
+그렇게 docusaurus 블로그를 개설하고 이곳에 정착하자고 마음을 먹을 때 즈음, 다음 블로그가 폐쇄되고 카카오의 블랙아웃으로 티스토리가 막히자 결심은 더 굳혀졌습니다.</p><p>물론 단점도 존재합니다.
+<code>docusaurus</code>는 원래 <code>doc</code>을 위한 것이라 블로그로 쓰기에는 약-간 불편함이 있습니다.
+카테고리의 부재, 댓글 기능이 그것인데요. 그것을 감안할만큼 잘 쓰고 있어서 만족합니다.
+카테고리 정도야 doc을 blog처럼 쓰면 되니까요.</p><p>갑자기 docusaurus을 찬양하는 글이 되어버렸는데, 관심이 생기신다면 시험삼아 docusaurus로 블로그를 만들어보세요. 금세 반하실 겁니다.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="사이트">사이트<a class="hash-link" href="#사이트" title="제목으로 바로 가기">​</a></h2><p><a href="https://docusaurus.io/ko/" target="_blank" rel="noopener noreferrer">docusaurus 사이트 들어가보기</a></p>]]></content>
+        <category label="docusaurus" term="docusaurus"/>
+        <category label="blog" term="blog"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[10월 프리온보딩 프론트엔드 챌린지(2)]]></title>
