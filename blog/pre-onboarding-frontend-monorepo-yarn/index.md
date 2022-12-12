@@ -2,7 +2,7 @@
 title: 12월 프리온보딩 프론트엔드 챌린지 - 모노레포 시스템
 description: 12월 프리온보딩 프론트엔드 챌린지, 모노레포 시스템 중 yarn에 대해서 정리합니다.
 tags: [프리온보딩, 모노레포, yarn, yarn-berry, 12월프리온보딩]
-date: '2022-12-07'
+date: '2022-12-12'
 ---
 
 12월 프리온보딩 프론트엔드 챌린지 수강 도중 애매하게 알고 있었거나 새로이 알게된 정보 정리합니다.
@@ -384,14 +384,251 @@ export default function Home() {
 yarn workspace @wanted/web run dev
 ```
 
+### react ui 공통 모듈로 가져가기
+
+1. packages에 ui 추가
+
+```shell
+cd packages/ui
+yarn init
+```
+
+- package.json 파일을 열어서 name을 `@wanted/ui`로 변경.
+
+2. react dependency 설치
+
+```shell
+cd ../../
+yarn
+yarn workspace @wanted/ui add typescript react react-dom @types/node @types/react @types/react-dom -D
+```
+
+3. tsconfig 설정
+
+```json title="packages/ui/tsconfig.json"
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "incremental": true
+  },
+  "exclude": ["**/node_modules", "**/.*/", "dist", "build"]
+}
+```
+
+- `packages/ui/src/index.ts`, `packages/ui/src/Button.tsx` 파일 생성
+
+```javascript title="packages/ui/src/Button.tsx"
+import { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode,
+  onClick?: MouseEventHandler<HTMLButtonElement>,
+};
+const Button = (props: ButtonProps) => {
+  const { children, onClick, ...other } = props;
+  return (
+    <button type='button' onClick={onClick} {...other}>
+      {children}
+    </button>
+  );
+};
+export default Button;
+```
+
+```javascript title="packages/ui/src/index.ts"
+export { default as Button } from './Button';
+```
+
+- `packages/ui/package.json`에 main 추가
+
+```json title="packages/ui/package.json"
+{
+  "name": "@wanted/ui",
+  "packageManager": "yarn@3.3.0",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/node": "^18.11.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.3"
+  }
+}
+```
+
+4. `apps/wanted` 에서 `packages/ui` 사용
+
+```shell title="root 에서 @wanted/ui 의존성 설치"
+yarn workspace @wanted/web add @wanted/ui
+```
+
+- `apps/wanted/pages/index.tsx` 파일 수정
+
+<details>
+<summary>토글 접기/펼치기</summary>
+
+```javascript
+import { sayHello } from '@wanted/lib';
+// highlight-next-line
+import { Button } from '@wanted/ui'; //추가
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      // ...
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        </h1>
+        <h2>{sayHello()}</h2>
+        // highlight-next-line
+        <Button>Hello From @wanted/ui</Button> // 추가
+        // ...
+    </div>
+  );
+}
+```
+
+</details>
+
+5. `@wanted/web`에서 javascript로 변환(transpile)
+
+```shell title="next-transpile-modules 설치"
+yarn workspace @wanted/web add next-transpile-modules
+```
+
+- `apps/wanted/next.config.js` 파일 수정
+
+```javascript title="apps/wanted/next.config.js"
+// @wanted/ui 패키지를 tranpile 시킨다.
+const withTM = require('next-transpile-modules')(['@wanted/ui']);
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+};
+module.exports = withTM(nextConfig);
+```
+
+- 실행
+
+```
+yarn workspace @wanted/web dev
+```
+
+### 타입체크
+
+#### 공통으로 쓰는 어떤 ui에 prop이 추가되었을 때, 이 ui를 쓰고 있는 프로젝트의 타입이 올바른지 체크해주기 위함이다.
+
+1. 다음을 추가한다.
+
+- `apps/wanted/package.json`
+- `packages/lib/package.json`
+- `packages/ui/package.json`
+
+각 package.json에 같은 스크립트 추가
+
+```json title="package.json"
+"scripts": {
+  "typecheck": "tsc --project ./tsconfig.json --noEmit"
+},
+```
+
+2. Button 컴포넌트에 브레이킹 체인지 발생 시키기.
+
+- `packages/ui/src/Button.tsx`의 props type에 `variant` 추가 해본다.
+
+```javascript
+import { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode,
+  // highlight-next-line
+  variant: 'contained' | 'outlined',
+  onClick?: MouseEventHandler<HTMLButtonElement>,
+};
+const Button = (props: ButtonProps) => {
+  const { children, onClick, ...other } = props;
+  return (
+    <button type='button' onClick={onClick} {...other}>
+      {children}
+    </button>
+  );
+};
+export default Button;
+```
+
+```shell
+yarn workspace @wanted/web typecheck
+```
+
+3. 모든 프로젝트를 타입체크하는 방법  
+   yarn workspace에서 관리하기 위한 기본 plugin을 제공해줍니다.
+   https://yarnpkg.com/api/modules/plugin_workspace_tools.html
+
+```shell
+yarn plugin import workspace-tools
+```
+
+- root package.json 수정하기
+
+```json title="root package.json"
+"scripts": {
+  "g:typecheck": "yarn workspaces foreach -pv run typecheck"
+},
+```
+
+`g:*`를 붙여주는건 global 하게 모든 프로젝트를 실행한다는 의미로 붙여주었다.
+
+- 이제 `yarn g:typecheck` 실행해보자
+
+```shell
+yarn g:typecheck
+```
+
+## 기타 팁
+
+1. 루트에 `.vscode` 폴더가 있는 프로젝트는 추천 익스텐션을 설치하는 걸 권장하는 창을 뜨게 하거나, vscode의 설정을 사용자가 그대로 쓸 수 있도록 한다.
+2. 해당 프로젝트가 노드 16 버전으로 개발되었다면, 루트에 `.nvmrc`파일을 만들고 `v16` 이라고 적어주자.
+   - `nvm`을 사용해야 함
+   - 설정 후 노드 버전을 맞추고자 한다면 vscode를 껐다 켜야함.
+3. `git stash`: 하던 작업을 임시로 저장하기 위해 사용하는 깃 명령어
+   - 작업 중 다른 요청이 들어와 하던 작업을 멈추고 잠시 브랜치를 변경하고자 할 때 사용한다.
+4. peerDependencies : 호환성이 필요한 경우 명시한다.
+
+   ```json title="react 17 버전만 사용하시오"
+   "peerDependencies": {"react": "17"},
+   //이 경우, react 18 버전의 훅을 사용하려고 하면 에러가 발생한다.
+   ```
+
+:::note
+호환성에 따르지 않을 시, yarn은 안전하지 않다는 경고 문구를 던져준다.
+
+➤ YN0060: │ @wanted/web@workspace:apps/wanted provides react (pfda8b) with version 18.2.0, which doesn't satisfy what @wanted/ui and some of its descendants request
+
+➤ YN0000: │ Some peer dependencies are incorrectly met; run yarn explain peer-requirements hash for details, where 'hash' is the six-letter p-prefixed code
+:::
+
+```json title="react 17 버전 이상을 사용하시오"
+"peerDependencies": {"react": "^17"},
+```
+
 ## Q&A
 
-🐣: 모노레포를 구축할 때 yarn workspace + lerna 조합을 많이 쓰던데, yarn workspace만으로도 모노레포 구축이 충분한지 궁금합니다.  
+🐣: 모노레포를 구축할 때 yarn workspace + lerna 조합을 많이 쓰던데, yarn workspace만으로도 모노레포 구축이 충분한지 궁금합니다.
 🦊: 충분히 가능하다. 러나는 고수준의 툴임. 라이브러리 폴더를 수정하고 커밋했을 때, 추가적으로 내부 패키지지만 npm에 publish 할 수 있다. 그러면 수정사항에 따라서 버전 정보가 중요하다. 러나는 이런 것을 자동화해준다.
 
 ---
 
-🐣: 멀티레포로 만들었던 프로젝트를 모노레포로 마이그레이션 한다고 할 때, 기존의 레포를 모노레포로 전환하는식으로 진행하나요? 아니면 새로운 모노레포 프로젝트에 기존 코드들을 가져오는 방식으로 진행되나요?  
+🐣: 멀티레포로 만들었던 프로젝트를 모노레포로 마이그레이션 한다고 할 때, 기존의 레포를 모노레포로 전환하는식으로 진행하나요? 아니면 새로운 모노레포 프로젝트에 기존 코드들을 가져오는 방식으로 진행되나요?
 🦊: 양쪽 다 고려해볼 수 있다. 코드의 히스토리가 중요하다면 기존 레포에서 다른 레포로 이동할때 히스토리를 같이 가져갈 수 있는 git 명령어가 있다. 개인적으로 안정적인 건 후자인 것 같다.
 
 :::note
@@ -410,34 +647,40 @@ git push --mirror
 
 ---
 
-🐣: 백엔드가 js 쪽 프레임워크를 선택한다했을 때 백엔드까지 모노레포로 같이 관리하는게 좋을지 백엔드는 따로 분리시키는게 좋을지도 궁금합니다!  
+🐣: 백엔드가 js 쪽 프레임워크를 선택한다했을 때 백엔드까지 모노레포로 같이 관리하는게 좋을지 백엔드는 따로 분리시키는게 좋을지도 궁금합니다!
+
 🦊: 같이 있는게 좋다고 본다. api 응답 모델들이 DTO도 있을 것임. 모노레포로 share하면 좋을 거 같다.
 
 ---
 
-🐣: @wanted/web만 clone 받았을 때에도 @wanted/lib 참조가 가능한가요?  
+🐣: @wanted/web만 clone 받았을 때에도 @wanted/lib 참조가 가능한가요?
+
 🦊: 불가능하다. 한쪽만 받을 수 없음.
 
 ---
 
 🐣: cache된 패키지들이 다 gitignore 안되고 있는데, 이것들을 원격 저장소에 올리는 편이 좋은가요? (yarn-berry 사용시에 이렇게도 한다고 들어본 것 같아서 의도된건가 싶어서요)
-🦊: 취향의 영역. 즉, 올려도 되고 안 올려도 된다. `.cache`를 같이 저장소에 올리면 zero-install 이 된다. 이렇게 하면 의존성을 설치 안 해도 프로젝트가 돌아간다.  
+
+🦊: 취향의 영역. 즉, 올려도 되고 안 올려도 된다. `.cache`를 같이 저장소에 올리면 zero-install 이 된다. 이렇게 하면 의존성을 설치 안 해도 프로젝트가 돌아간다.
 [토스 링크를 참조](https://toss.tech/article/node-modules-and-yarn-berry)해보시라.
 
 ---
 
-🐣: yarn1을 쓸일이 없다고 하셨는데 왜 그런가요? 저희 회사에서는 pnp를 지원하지 않는 패키지가 여럿 있고, 큰 기능이 필요없고 컴포넌트나 기능만 공통으로 가져가기 위해 yarn1을 사용하려고 했었는데요, yarn berry로 시작하는 이유가 있으실까요. 단지 yarn berry가 yarn 1보다 더 지원하는 기능이 많아서인가요?  
-🦊: yarn berry 에서도 pnp 사용하지 않고 쓸 수 있음. `nodelinker`라는 게 있음. `.yarnnrc.yml`파일에 `nodeLinker: node-modules`를 추가하면 가능. 이는 pnp 모드를 사용하지 않겠다라는 뜻이다.  
+🐣: yarn1을 쓸일이 없다고 하셨는데 왜 그런가요? 저희 회사에서는 pnp를 지원하지 않는 패키지가 여럿 있고, 큰 기능이 필요없고 컴포넌트나 기능만 공통으로 가져가기 위해 yarn1을 사용하려고 했었는데요, yarn berry로 시작하는 이유가 있으실까요. 단지 yarn berry가 yarn 1보다 더 지원하는 기능이 많아서인가요?
+
+🦊: yarn berry 에서도 pnp 사용하지 않고 쓸 수 있음. `nodelinker`라는 게 있음. `.yarnnrc.yml`파일에 `nodeLinker: node-modules`를 추가하면 가능. 이는 pnp 모드를 사용하지 않겠다라는 뜻이다.
 [참조](https://yarnpkg.com/getting-started/migration)
 
 ---
 
-🐣: yarn berry 로 바뀌었을 때 생기는 `yarnrc.yml` 파일에서 yarnPath: `.yarn/releases/yarn-3.3.0.cjs` 가 어떤 것을 의미하는지 궁금합니다!  
+🐣: yarn berry 로 바뀌었을 때 생기는 `yarnrc.yml` 파일에서 yarnPath: `.yarn/releases/yarn-3.3.0.cjs` 가 어떤 것을 의미하는지 궁금합니다!
+
 🦊: yarn은 전역적으로 설치되는데, yarn을 설치 안 해도 쓰겠다는 것. 제로인스톨과 같은 개념이다.
 
 ---
 
-🐣: package를 내부 서비스에서 import 할 때 꼭 index에서 export 해준 것만 import할 수 있을까요? 폴더구조가 깊어지면 일일이 export 해주기가 까다로울 것 같아서요  
+🐣: package를 내부 서비스에서 import 할 때 꼭 index에서 export 해준 것만 import할 수 있을까요? 폴더구조가 깊어지면 일일이 export 해주기가 까다로울 것 같아서요
+
 🦊: 엔트리 인덱스를 잡아주고 써야 편리하다. (안하면 더러워짐)
 
 ---
@@ -451,10 +694,44 @@ git push --mirror
 
 ---
 
-🐣: yarn1에서 설치된 라이브러리 내부를 볼 때 node_modules안에서 보고 수정할 수 있는데 yarn berry에서는 어디서 확인하고 수정할 수 있을까요??  
+🐣: yarn1에서 설치된 라이브러리 내부를 볼 때 node_modules안에서 보고 수정할 수 있는데 yarn berry에서는 어디서 확인하고 수정할 수 있을까요??
+
 🦊: pnp는 이렇게 수정하는 것이 안된다.
 
 ---
 
-🐣: 모노레포의 packages 를 github의 submodule 로 관리하는 것도 괜찮은지 궁금합니다  
+🐣: 모노레포의 packages 를 github의 submodule 로 관리하는 것도 괜찮은지 궁금합니다
+
 🦊: 서브모듈로 내보내서 써라. 러나처럼…
+
+---
+
+🐣: packages에 타입스크립트를 설치하고 apps 내의 프로젝트가 packages의 타입스크립트에 의존하더라도, 각 프로젝트 내에서도 타입스크립트를 쓰기 위해선 apps 내에 각각 타입스크립트를 따로 또 설치해주어야 하는 건가요?
+
+🦊: 넵. typesciprt를 따로 설치해주셔야 합니다.
+
+---
+
+🐣: 모노레포를 도입하면 여러 프로젝트가 쌓일수록 점점 더 무거워질 거 같은데요, 이럴 때 vscode나 ide가 잘 돌아가나요? 예를 들어 ts를 잘 못잡아준다든지... 몇 박자 늦게 eslint가 잡아준다든지 하는 딜레이요. 프로젝트가 커질수록 vsc가 힘들어하는 거 같은데 이런 프로젝트가 여러 개면 개발하는데도 문제가 있지 않을까 싶어서요.
+
+🦊: vscode에서 eslint가 오래걸리는 현상이 있다면,
+
+- vscode eslint 셋팅
+- eslint cache 설정
+- husky 셋팅
+- 모니터링 백신 프로그램 출동
+
+위 4가지를 살펴보시면 좋을 것 같아요.
+
+추가로, 모노레포 repository가 커지면
+git clone, checkout 등등 속도가 느려지는 문제가 있는데요.
+이부분은 깊게 보지는 않아서, 대략적으로만 말씀드리면,
+
+github에서 monorepo repo가 커졌을때 발생되는 문제점들을 오래전부터 인지하고 있었고,
+이를 극복하는 다양한 기능들을 내놓고 있습니다.
+
+- sparse-checkout
+- git clone --filter=blob:none
+
+github 블로그에 방문해보시면 github에서 monorepo에서 제공하는 기능들을 살펴 볼수 있습니다.
+https://github.blog/?s=monorepo
