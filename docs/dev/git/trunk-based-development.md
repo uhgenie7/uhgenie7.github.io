@@ -16,7 +16,7 @@ last_update:
 
 깃 브랜치 전략에는 여러 가지 방법론이 있다.
 
-1. `git flow`: 중심이 되는 `master`, `develop` 브랜치에 `feature`, `release`, `hotfix` 보조 브랜치를 병합한 뒤 보조 브랜치를 삭제하는 전략을 갖고 있는 전략
+1. `git flow`: 중심이 되는 `master`, `develop` 브랜치에 `feature`, `release`, `hotfix` 보조 브랜치를 병합한 뒤 보조 브랜치를 삭제하는 전략
 2. `github flow`: 1개의 `master`브랜치와 PR 방식을 활용한 전략
 
 그리고 새로이 떠오르는 브랜치 전략이 있다.
