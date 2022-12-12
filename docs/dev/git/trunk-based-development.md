@@ -32,7 +32,7 @@ last_update:
 
 `Gitflow`는 수명이 긴 feature branches와 여러 기본 분기를 사용하는 브랜치 전략인데 일반적으로 여러 개발자가 관여하며 며칠, 심지어 몇 주가 소요된다. 때문에 이 전략은 개발자가 feature branches를 만들고 기능이 완료될 때까지 main trunk branch에 병합할 수 없다. 이러한 수명이 긴 feature branches는 main trunk branch에 병합을 시도하는 순간 충돌할 확률이 높고 그만큼 위험이 높기 때문에 병합하려면 더 많은 협업이 필요하다.
 
-앞서 말했듯, `Gitflow`에는 개발, 핫픽스, 기능 및 릴리스를 위한 별도의 브랜치가 있다. 이러한 브랜치 간에 커밋을 병합하기 위한 다양한 전략이 있는데, 저글링하고 관리해야 할 지점이 더 많기 때문에 추가 계획 세션과 팀의 검토가 필요한 더 복잡한 경우가 많다.
+앞서 말했듯, `Gitflow`에는 개발, 핫픽스, 기능 및 릴리스를 위한 별도의 브랜치가 있다. 그만큼 관리해야 할 지점이 더 많기 때문에 추가 계획 세션과 팀의 검토가 더 필요하다.
 ![일반적인 브랜치전략](https://cloud.google.com/static/architecture/devops/images/devops-tech-trunk-based-development-typical-non-trunk-timeline.svg)
 
 반면 `TBD`는 개발자가 코드를 `Trunk` 또는 `main branch`에 직접 푸시한다. 출시 분기에서 변경된 사항은 가능한 빨리 트렁크에 다시 병합해야 한다. `TBD`의 주요 이점은 개발 라인을 줄이고 소규모 병합을 빈번하게 수행하여 이벤트를 병합하는 데 따른 복잡성을 감소시키고 코드를 최신 상태로 유지할 수 있게 한다.
