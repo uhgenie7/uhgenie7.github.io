@@ -55,7 +55,11 @@ const sidebars = {
     {
       type: 'category',
       label: 'Git',
-      items: ['dev/git/sync-repository', 'dev/git/another-branch-push'],
+      items: [
+        'dev/git/sync-repository',
+        'dev/git/another-branch-push',
+        'dev/git/trunk-based-development',
+      ],
     },
     {
       type: 'category',
