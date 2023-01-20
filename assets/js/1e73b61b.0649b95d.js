@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[4950],{7003:e=>{e.exports=JSON.parse('{"label":"commit-msg","permalink":"/blog/tags/commit-msg","allTagsPath":"/blog/tags","count":1}')}}]);
