@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[9935],{4609:e=>{e.exports=JSON.parse('{"label":"nextui","permalink":"/blog/tags/nextui","allTagsPath":"/blog/tags","count":1}')}}]);
