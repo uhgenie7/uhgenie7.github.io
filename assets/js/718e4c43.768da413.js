@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[5221],{314:e=>{e.exports=JSON.parse('{"label":"android12","permalink":"/fixed/tags/android-12","allTagsPath":"/fixed/tags","count":1}')}}]);
