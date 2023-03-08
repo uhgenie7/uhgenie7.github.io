@@ -18,6 +18,11 @@ draft: true
 
 - 여기서 유효성 검사는 [pattern 속성](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern)을 추천 한다.
 
+<iframe
+  width='100%'
+  height='400px'
+  src='https://codesandbox.io/embed/formdata-forked-5ebfsh?fontsize=14&hidenavigation=1&theme=dark'></iframe>
+
 :::note
 
 FormData에 속하는 필드는 아래와 같은 메서드로 수정할 수 있습니다.
