@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[7848],{9692:e=>{e.exports=JSON.parse('{"label":"\ud504\ub9ac\uc628\ubcf4\ub529","permalink":"/blog/tags/\ud504\ub9ac\uc628\ubcf4\ub529","allTagsPath":"/blog/tags","count":6}')}}]);
