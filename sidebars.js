@@ -92,6 +92,11 @@ const sidebars = {
         'books/frameworkless-front-end-development/06',
       ],
     },
+    {
+      type: 'category',
+      label: '러닝 타입스크립트',
+      items: ['books/learning-typescript/introduction'],
+    },
   ],
 };
 
