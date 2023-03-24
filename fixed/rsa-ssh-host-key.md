@@ -67,6 +67,18 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Are you sure you want to continue connecting (yes/no)? yes
 ```
 
+4. Warning이 발생한다면
+   Warning: the ECDSA host key for 'github.com' differs from the key for the IP address '00.200.000.000'
+
+해당 아이피로 다시 명령어를 입력해준다.
+
+```bash
+ssh-keygen -R 20.200.245.247
+# Host 20.200.245.247 found: line 12
+/Users/niege/.ssh/known_hosts updated.
+Original contents retained as /Users/niege/.ssh/known_hosts.old
+```
+
 ## 참조
 
 [RSA SSH 호스트 키를 업데이트했습니다.](https://github.blog/2023-03-23-we-updated-our-rsa-ssh-host-key/)
