@@ -95,7 +95,10 @@ const sidebars = {
     {
       type: 'category',
       label: '러닝 타입스크립트',
-      items: ['books/learning-typescript/introduction'],
+      items: [
+        'books/learning-typescript/introduction',
+        'books/learning-typescript/01',
+      ],
     },
   ],
 };
