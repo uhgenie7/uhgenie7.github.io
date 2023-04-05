@@ -98,6 +98,7 @@ const sidebars = {
       items: [
         'books/learning-typescript/introduction',
         'books/learning-typescript/01',
+        'books/learning-typescript/02',
       ],
     },
   ],
