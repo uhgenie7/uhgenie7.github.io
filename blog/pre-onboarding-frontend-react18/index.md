@@ -83,6 +83,29 @@ console.log(
 
 `ReactDOMRoot` 인스턴스가 생성되는데 이는, [FiberRootNode](https://github.com/facebook/react/blob/v16.12.0/packages/react-reconciler/src/ReactFiberRoot.js#L104)를 통해 생성되는 인스턴스이다.
 
+DOMTree의 node들은 VirtualDOM에서 Fiber로 나타낸다
+
+:::note
+
+Fiber란?
+
+1. 리액트 렌더링/업데이트의 가장 작은 단위
+2. `work`라고도 한다
+3. 효율적인 업데이트를 위해
+
+   - work를 중지하고, 필요 시 다시 시작할 수 있어야 한다.
+   - 다른 종류의 work들에게 우선순위를 부여할 수 있어야 한다.
+   - 이미 완료된 work를 재사용 할 수 있어야 한다.
+   - work가 더이상 필요 없게 되면 버릴 수 있어야 한다.
+
+4. Fiber는 key로 구분된다
+
+   - array.map() 사용 시 0번째 인덱스에 값을 추가하는 것은 지양한다
+   - 다른 array들 끼리는 key가 중복되어도 괜찮다
+   - 불필요한 tag를 추가하는 것을 지양한다
+
+:::
+
 ```tsx title="react-dom/cjs/react-dom.development.js"
 // react-dom.development.js
 var FunctionComponent = 0;
