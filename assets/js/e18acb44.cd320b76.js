@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[6634],{6033:e=>{e.exports=JSON.parse('{"label":"\ub9ac\uc561\ud2b8","permalink":"/blog/tags/\ub9ac\uc561\ud2b8","allTagsPath":"/blog/tags","count":1}')}}]);
