@@ -204,3 +204,237 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 
 React는 `<h1>`의 내용만 업데이트하기 때문이다.
 `<input>`은 `h1`가 업데이트 되어도, h1이 업데이트 되기 전과 **같은 위치**에서 JSX에 나타나고 있기 때문에 React는 `<input>`을 건드리지 않는다.
+
+## 5. hook 올바르게 쓰기
+
+### 1. useState
+
+1. **setSomething(nextState)** :
+
+함수를 nextState로 전달하면 업데이트 함수로 처리됩니다. 이것은 **순수**해야 하고 pending 상태를 유일한 인수로 가져와야 하며 다음 상태를 반환해야 합니다.
+React는 updater function을 대기열에 넣고 컴포넌트를 다시 렌더링합니다. 다음 렌더링 동안 React는 대기 중인 모든 updater를 이전 상태에 적용하여 다음 상태를 계산합니다.
+
+React는 상태 업데이트를 일괄 처리합니다. 모든 이벤트 핸들러가 실행되고 **해당 설정 함수를 호출**한 후 **화면을 업데이트**합니다. 이렇게 하면 **단일 이벤트 중에 여러 번 다시 렌더링되는 것을 방지**할 수 있습니다. 드문 경우지만 예를 들어 DOM에 액세스하기 위해 React가 화면을 더 일찍 업데이트하도록 강제해야 하는 경우 flushSync를 사용할 수 있습니다.
+
+:::warning 특히 주의
+일반적으로 많이 저지르는 실수
+함수가 끝나기 전에 set함수를 호출해도 **이미 실행 중인 코드의 현재 상태**는 변경 되지 않는다.
+
+```tsx
+import { useState } from 'react';
+
+export default function Counter() {
+  const [name, setName] = useState('Taylor');
+
+  function handleNameClick() {
+    setName('Robin');
+    console.log(name); // 여전히 Robin으로 set하더라도, 아직 "Taylor" 인 것을 확인할 수 있음.
+  }
+
+  return (
+    <>
+      <button onClick={handleNameClick}>You pressed me {name}</button>
+    </>
+  );
+}
+```
+
+:::
+
+2. 이전 상태를 기반으로 상태 업데이트
+
+여기 두 가지 방법의 상태 업데이트가 있다. 둘의 차이는 엄연히 다르다.
+
+```tsx
+const [age, setAge] = useState(42);
+
+function handleClick1() {
+  setAge(age + 1); // setAge(42 + 1)
+  setAge(age + 1); // setAge(42 + 1)
+  setAge(age + 1); // setAge(42 + 1)
+}
+
+function handleClick2() {
+  setAge((prevAge) => prevAge + 1); // setAge(42 => 43)
+  setAge((prevAge) => prevAge + 1); // setAge(43 => 44)
+  setAge((prevAge) => prevAge + 1); // setAge(44 => 45)
+}
+```
+
+handleClick1 은 이미 실행 중인 코드의 상태 변수가 업데이트 되지 않고 있다. 계속 바깥에 있는 age를 참조하고 있기 때문이다.
+
+handleClick2 는 보류 상태를 가져와 다음 상태를 업데이트 한다.
+
+prevAge => prevAge + 1 는 42를 보류 상태로 갖고 있다가 43으로 다음 상태를 반환한다.  
+prevAge => prevAge + 1 는 43를 보류 상태로 갖고 있다가 44으로 다음 상태를 반환한다.  
+prevAge => prevAge + 1 는 44를 보류 상태로 갖고 있다가 45으로 다음 상태를 반환한다.
+
+즉, prevAge => prevAge +1 방식으로 상태를 업데이트 하게 되면, automatic batching으로 큐에 setAge 함수가 3번 들어간다.
+2번째 setAge 함수 처리를 할 때, 첫 번째 setAge를 이미 처리해서 prev 값이 43이기 때문에 43+1 => 44가 되는 것이다.
+
+:::note
+관례적으로 대기 중인 상태 인수의 이름을 `age`와 같이 지정하는 것이 일반적이지만, prevAge 또는 더 명확하다고 생각되는 다른 것으로 부를 수도 있다.
+(필자는 prev를 붙이는 방식을 좀 더 선호함)
+:::
+
+<iframe
+  width='100%'
+  height='400px'
+  src='https://codesandbox.io/embed/boring-johnson-1x4izw?fontsize=14&hidenavigation=1&theme=dark'></iframe>
+
+이 원리를 모른 채 setState를 사용하면, 의도한대로 작동하지 않는 경우가 있다.
+
+<iframe
+  width='100%'
+  height='400px'
+  src='https://codesandbox.io/embed/gracious-wave-wv2vqw?fontsize=14&hidenavigation=1&theme=dark'></iframe>
+
+increment() 함수를 세 번 호출하는 onClick +3 버튼을 눌러도 하나씩 증가한다.
+
+```tsx
+const [age, setAge] = useState(42);
+
+function increment() {
+  setAge(age + 1);
+}
+```
+
+함수가 업데이트 기능을 전달 하지 않기 때문이다.
+
+<iframe
+  width='100%'
+  height='400px'
+  src='https://codesandbox.io/embed/optimistic-framework-cm3zow?fontsize=14&hidenavigation=1&theme=dark'></iframe>
+
+따라서 올바르게 setState를 이해하고 함수를 사용하자
+
+```tsx
+const [age, setAge] = useState(42);
+
+function increment() {
+  setAge((a) => a + 1);
+}
+```
+
+:::note
+함수형 프로그래밍의 원칙에 따라 (같은 input이 들어오면 같은 output이 나와야함) 보류 상태를 가져와 다음 상태를 업데이트 하는 방식을 쓰려고 노력하자
+:::
+
+- [더 읽어보면 좋은 글: automatic batching](https://react.dev/blog/2022/03/08/react-18-upgrade-guide#automatic-batching)
+
+  React 18은 기본적으로 더 많은 batching(일괄 처리)를 수행하여 즉시 사용 가능한 성능 향상을 추가합니다.  
+  batching은 React가 성능 향상을 위해 **여러 상태 업데이트를 단일 재렌더링으로 그룹화**하는 것입니다.
+
+  React 18 이전에는 React 이벤트 핸들러 내에서만 업데이트를 일괄 처리했습니다. Promise, setTimeout, 기본 이벤트 핸들러 또는 기타 이벤트 내부의 업데이트는 기본적으로 React에서 일괄 처리되지 않았습니다.
+
+```tsx title=" React 18 이전에는 React 이벤트만 일괄 처리함"
+function handleClick() {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  //  React는 마지막에 한 번만 다시 렌더링합니다. (이게 batching 임)
+}
+
+setTimeout(() => {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  // setTimeout 내에서 React는 각 상태 업데이트에 대해 한 번씩 두 번 렌더링합니다 (일괄 처리 batching 없음).
+}, 1000);
+```
+
+createRoot가 포함된 React 18부터 모든 업데이트는 출처에 관계없이 자동으로 일괄 처리됩니다. 즉, Promise, setTimeout, 기본 이벤트 핸들러 또는 기타 이벤트 내부 업데이트는 React 이벤트 내부의 업데이트와 동일한 방식으로 일괄 처리됩니다.
+
+```tsx title=" React 18 이후에는 출처에 관계없이 일괄 처리함"
+function handleClick() {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  //  React는 마지막에 한 번만 다시 렌더링합니다. (이게 batching 임)
+}
+
+setTimeout(() => {
+  setCount((c) => c + 1);
+  setFlag((f) => !f);
+  // setTimeout 내에도 React는 마지막에 한 번만 다시 렌더링합니다. (batching)
+}, 1000);
+```
+
+> batching은 React가 성능 향상을 위해 여러 상태 업데이트를 단일 재렌더링으로 그룹화하는 것.  
+> [더 자세히 읽어보기](https://github.com/reactwg/react-18/discussions/21)
+
+3. 상태에 Object 넣기
+
+object 상태의 state 상태를 업데이트 할 때는 불변성을 위해 spread 구문을 이용하여 업데이트 해야 한다. 절대 React 상태에 있는 객체를 직접 변경해서는 안 된다. 기존 객체를 변경하는 대신 **교체**한다고 생각해야한다.
+
+- [상태의 개체 업데이트](https://react.dev/learn/updating-objects-in-state)
+- [중첩 개체 업데이트](https://react.dev/learn/updating-objects-in-state#updating-a-nested-object)
+
+```tsx
+import { useState } from 'react';
+
+export default function Form() {
+  const [person, setPerson] = useState({
+    name: 'Niki de Saint Phalle',
+    artwork: {
+      title: 'Blue Nana',
+      city: 'Hamburg',
+      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+    },
+  });
+
+  const [form, setForm] = useState({
+    firstName: 'Barbara',
+    lastName: 'Hepworth',
+    email: 'bhepworth@sculpture.com',
+  });
+
+  function handleTitleChange(e) {
+    setPerson({
+      ...person,
+      artwork: {
+        ...person.artwork,
+        title: e.target.value,
+      },
+    });
+  }
+
+  return (
+    <>
+      <label>
+        First name:
+        <input
+          value={form.firstName}
+          onChange={(e) => {
+            setForm({
+              ...form,
+              firstName: e.target.value,
+            });
+          }}
+        />
+      </label>
+      <label>
+        Title:
+        <input value={person.artwork.title} onChange={handleTitleChange} />
+      </label>
+    </>
+  );
+}
+```
+
+배열도 같은 방식으로 접근한다.
+
+<iframe
+  width='100%'
+  height='400px'
+  src='https://codesandbox.io/embed/quiet-sky-ror709?fontsize=14&hidenavigation=1&theme=dark'></iframe>
+
+4. 초기 상태 재생성 방지
+
+   `const [todos, setTodos] = useState(createInitialTodos());` 이 코드와,  
+   `const [todos, setTodos] = useState(createInitialTodos);` 이 코드는 엄연히 다르다.
+
+   전자는 초기 상태를 **직접** 전달해, 입력할 때와 같이 모든 렌더링에서 함수가 실행 실행되며, 후자는 이니셜라이저 함수 그 자체를 전달하고, 초기화 중에만 실행되어 컴포넌트가 다시 렌더링 될 땐 실행하지 않는다.
+
+### 2. useEffect
+
+### 3. useMemo
+
+### 4. useCallback
