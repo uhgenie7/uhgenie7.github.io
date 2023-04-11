@@ -438,3 +438,154 @@ export default function Form() {
 ### 3. useMemo
 
 ### 4. useCallback
+
+## 6. React 최적화하기
+
+### 1. Lighthouse
+
+- 구글에서 만든 퍼포먼스 측정 도구. 개발자 도구를 열어서 측정할 수 있음.
+- [3가지 모드로 실행 가능](https://github.com/GoogleChrome/lighthouse/blob/HEAD/docs/user-flows.md)
+  - Navigation: 단일 페이지 로드를 분석. 일반적으로 네비게이션 모드로 많이 시행한다.
+  - Timespan: 일반적으로 사용자 상호 작용을 포함하는 임의의 기간을 분석.
+  - Snapshot: 특정 상태의 페이지를 분석.
+
+### 2. [Profiler](https://react.dev/reference/react/Profiler)
+
+#### 1. 코드로 확인하는 방법
+
+- React에서 제공하는 성능 측정도구
+- 컴포넌트별로 렌더링 시간을 확인할 수 있음
+
+컴포넌트를 Profiler로 래핑하면 렌더링 성능을 측정할 수 있다.
+
+```tsx
+function onRender(
+  id,
+  phase,
+  actualDuration,
+  baseDuration,
+  startTime,
+  commitTime
+) {
+  // Aggregate or log render timings...
+}
+
+<Profiler id='App' onRender={onRender}>
+  <App />
+</Profiler>;
+```
+
+- id
+  - 측정 중인 UI 부분을 식별하는 문자열.
+- onRender
+  - React가 프로파일링된 트리 내의 컴포넌트가 업데이트될 때마다 호출하는 onRender 콜백. 렌더링된 내용과 소요 시간에 대한 정보를 받는다.
+- onRender 함수
+  - phase: mount, update, nested-update. 트리가 처음으로 mount되었는지 아니면 props, state 또는 hooks의 변경으로 인해 다시 렌더링되었는지 알 수 있다.
+  - actualDuration: `Profiler`를 렌더링하는데 걸린 진짜 시간. 현재 업데이트에 대해 및 하위 항목을 렌더링하는 데 소요된 시간(밀리초)이다. 하위 트리가 메모이제이션을 얼마나 잘 사용하는지 나타낸다 (ex: memo, useMemo) 이상적으로 이 값은 초기 mount 이후에 크게 감소해야 함. 많은 자손이 특정 소품이 변경되는 경우에만 다시 렌더링하면 되기 때문.
+  - baseDuration: 아무런 최적화 없이 `Profiler`를 렌더링할 때 걸릴 거라고 예상한 시간. 즉, actualDuration가 baseDuration보다 오래걸리면 최적화하면 좋다. 이 값은 최악의 렌더링 비용을 추정한다.
+  - startTime: rendering을 시작한 시간
+  - endTime: rendering이 commit된 시간
+
+🐣: 프로덕션 모드에 적용해도 되나요?  
+🦊: 프로파일러는 약간의 추가 오버헤드를 추가하므로 안 하는 게 좋다. 필요할 때만 사용하자.
+
+#### 2. 개발자도구로 확인하는 방법
+
+- [Profiler를 개발자 도구로 추가하면 좀 더 간편하게 성능측정을 할 수 있다.](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ko)
+- [구 리액트 문서](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#flame-chart)
+  - ![이미지](https://miro.medium.com/max/1400/1*k7ROvT4NZ7huVa5ewmfaPA.gif)
+  - 막대 색상은 컴포넌트(및 자식 요소)가 선택한 커밋에서 렌더링하는 데 걸린 시간을 나타냅니다. 노란색 컴포넌트는 시간이 더 오래 걸리고 파란색 컴포넌트는 조금 덜 걸리고 회색 컴포넌트는 이 커밋 중에 렌더링되지 않았습니다.
+  - [괜찮은 아티클](https://velog.io/@cookie004/%EB%B2%88%EC%97%AD%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%ED%8C%8C%EC%9D%BC%EB%9F%AC%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%95%B1-%EC%84%B1%EB%8A%A5-%ED%96%A5%EC%83%81)
+
+### 3. [Performance](https://developer.chrome.com/docs/devtools/performance/reference/)
+
+- 개발자도구 탭에서 볼 수 있음
+- 런타임 성능 기록 또는 부하 성능 기록을 할 수 있음
+- [Web Vital](https://web.dev/vitals/#core-web-vitals)
+  - LCP - Largest Contentful Paint
+  - FID - First Input Delay
+  - CLS - Cumulative Layout Shift
+- ![performance](./performance.png)
+  - Scripting: JavaScript 구문 분석 및 평가
+  - Rendering: DOM 렌더링
+  - Painting: DOM 페인팅
+  - System
+  - Idle
+
+### 4. [next/bundle-analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer)
+
+- Next.js + Webpack 번들 분석기. 번들링 크기를 분석해준다.
+- 성능 측정 후 개선사항을 도출한다.
+- 초기에 툴을 도입하기보다, 프로젝트 마무리할 때 하는 게 가장 좋다. 초반에 하는 건 의미없음.
+
+### 5. Intersection Observer API
+
+- 레이지 로드 기법
+- [강사님의 블로그](https://jasonkang14.github.io/react/lazy-loading-to-improve-web-vitals)에서 개선 경험 포스팅을 인용
+
+0. UI: 챌린지 도전 갯수만큼 Card 컴포넌트(하나의 챌린지)가 map을 돌며 리스트를 만들고 있는 상황이며, 이때 부모 height를 한정해 무한스크롤 기능을 줌.
+1. useRef를 사용해 useVisibility 훅의 인수로 넘겨주고, Card 컴포넌트에도 ref로 걸어준다.
+
+```tsx
+const Card = () => {
+  const wrapperRef = useRef(null);
+  const isVisible = useVisibility(wrapperRef);
+
+  return <Wrapper ref={wrapperRef}>{isVisible && <>...</>}</Wrapper>;
+};
+```
+
+2. useVisibility 훅이 Card 컴포넌트가 뷰포트에 보이는지 안보이는지 확인하고, 보이게 되는 경우 useState의 isVisible를 true로 바꾼다.
+
+```tsx title="useVisibility"
+// 출처: 강사님 블로그
+import { useState, useEffect, RefObject } from 'react';
+
+function useVisibility<T extends HTMLElement>(ref: RefObject<T>): boolean {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1, // Adjust this value to control when the component should be considered visible.
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [ref]);
+
+  return isVisible;
+}
+
+export default useVisibility;
+```
+
+3. 이때, isVisible true가 되면 card content를 렌더링하게 되는 원리이다.
+
+```tsx
+const Card = () => {
+  const wrapperRef = useRef(null);
+  const isVisible = useVisibility(wrapperRef);
+
+  return <Wrapper ref={wrapperRef}>{isVisible && <>...</>}</Wrapper>;
+};
+```
+
+이렇게하면 뷰포트에 나타나지 않은 카드들은 렌더링되지 않으므로 성능 개선이 된다.
+
+## 참고자료
+
+- [강사님 블로그](https://jasonkang14.github.io/react/lazy-loading-to-improve-web-vitals)
