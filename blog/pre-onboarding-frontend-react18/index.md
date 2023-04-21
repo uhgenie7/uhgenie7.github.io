@@ -439,6 +439,69 @@ export default function Form() {
 
 ### 4. useCallback
 
+컴포넌트의 최상위 수준에서 useCallback을 호출하여 재렌더링 간에 **함수를 캐시**함.
+
+`useCallback(fn, dependencies)`
+
+1. fn: 리랜더링 시 캐시하려는 함수 정의
+2. dependencies: 함수 내에서 사용되는 컴포넌트 내의 모든 값을 포함하는 종속성 목록.
+
+#### 1. 컴포넌트의 재랜더링 스킵하기
+
+렌더링 성능을 최적화할 때 자식 컴포넌트에 전달하는 함수를 캐시해야 하는 경우.
+
+1. 초기 렌더링에서 useCallback에서 반환되는 함수는 fn.
+2. 그 다음 렌더링에서 React는 종속성을 이전 렌더링 중 종속성과 비교한다.
+3. 종속성이 **변경되지 않은 경우**(Object.is와 비교하여) useCallback은 이전과 동일한 함수를 반환한다.
+4. 그렇지 않으면 useCallback은 이 렌더링에서 전달한 함수를 반환한다.
+
+**즉, useCallback은 종속성이 변경될 때까지 다시 렌더링 간에 함수를 캐시함.**
+
+```tsx
+function ProductPage({ productId, referrer, theme }) {
+  // theme가 바뀔때마다 다른 기능이 될텐데...
+  function handleSubmit(orderDetails) {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }
+
+  return (
+    <div className={theme}>
+      {/* ... 따라서 ShippingForm의 소품은 동일하지 않으며 매번 다시 렌더링됩니다. */}
+      <ShippingForm onSubmit={handleSubmit} />
+    </div>
+  );
+}
+```
+
+handleSubmit 이라는 함수를, ProductPage 컴포넌트에서 ShippingForm 자식 컴포넌트에게 전달함.
+useCallback 으로 감싸지 않은 handleSubmit 함수는 리액트가 리렌더링 할 때 새 객체를 계속 생성하므로 다른 함수를 생성한다고 본다.
+즉, handleSubmit 함수를 prop으로 받는 ShippingForm 컴포넌트 역시도 다른 값이 온다고 인식하므로, 다시 그려진다.
+
+```tsx
+function ProductPage({ productId, referrer, theme }) {
+  // 함수를 캐시함
+  const handleSubmit = useCallback(
+    (orderDetails) => {
+      post('/product/' + productId + '/buy', {
+        referrer,
+        orderDetails,
+      });
+    },
+    [productId, referrer]
+  ); // ...종속성이 변경되지 않는 한...
+
+  return (
+    <div className={theme}>
+      {/* ...ShippingForm은 동일한 prop을 수신하고 재렌더링을 건너뛸 수 있다. 동일한 prop이라는 것에 주목하자. */}
+      <ShippingForm onSubmit={handleSubmit} />
+    </div>
+  );
+}
+```
+
 ## 6. React 최적화하기
 
 ### 1. Lighthouse
