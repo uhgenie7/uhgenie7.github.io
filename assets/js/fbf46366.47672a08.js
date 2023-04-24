@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[949],{3455:e=>{e.exports=JSON.parse('{"label":"hook","permalink":"/docs/tags/hook","allTagsPath":"/docs/tags","count":1,"items":[{"id":"dev/react/hook/index","title":"React Hook \uc815\ub9ac","description":"\uacf5\uc2dd\ubb38\uc11c \uc77d\uae30","permalink":"/docs/dev/react/hook/"}]}')}}]);
