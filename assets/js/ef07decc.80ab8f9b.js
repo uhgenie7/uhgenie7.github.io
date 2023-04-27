@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[3968],{6922:e=>{e.exports=JSON.parse('{"label":"enter","permalink":"/fixed/tags/enter","allTagsPath":"/fixed/tags","count":1}')}}]);

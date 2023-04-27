@@ -4,10 +4,21 @@
         <title>지니의 개발 블로그 Blog</title>
         <link>https://uhgenie7.github.io/fixed</link>
         <description>지니의 개발 블로그 Blog</description>
-        <lastBuildDate>Wed, 19 Apr 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 27 Apr 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
+        <item>
+            <title><![CDATA[vscode 엔터가 안 될 때.]]></title>
+            <link>https://uhgenie7.github.io/fixed/vscode_enter_not_working</link>
+            <guid>https://uhgenie7.github.io/fixed/vscode_enter_not_working</guid>
+            <pubDate>Thu, 27 Apr 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[강제 종료로 인한 vscode 엔터 먹통.]]></description>
+            <content:encoded><![CDATA[<p>mac을 강제종료 한 후, vscode를 다시 켰을 때 엔터가 되지 않는 상황이 발생함
+ctrl + Enter 를 하면 엔터가 되긴 하지만 근본적인 해결이 안 되고 있음.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="해결법">해결법<a href="#해결법" class="hash-link" aria-label="해결법에 대한 직접 링크" title="해결법에 대한 직접 링크">​</a></h2><p>vscode 확장 프로그램과 연관이 있을 확률이 높기 때문에 문제되는 확장 프로그램을 제거하고 다시 설치하기를 권장한다.</p><p>나는 <code>vscode-styled-components</code> 가 문제였음.</p>]]></content:encoded>
+            <category>vscode</category>
+            <category>enter</category>
+        </item>
         <item>
             <title><![CDATA[react-native에서의 storybook 에러 타파]]></title>
             <link>https://uhgenie7.github.io/fixed/rn_storybook-error</link>
