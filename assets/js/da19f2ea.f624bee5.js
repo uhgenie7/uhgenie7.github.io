@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[4307],{6623:e=>{e.exports=JSON.parse('{"permalink":"/fixed/page/2","page":2,"postsPerPage":10,"totalPages":2,"totalCount":12,"previousPage":"/fixed","blogDescription":"\uc5d0\ub7ec \ud574\uacb0 \uae30\ub85d","blogTitle":"\uc5d0\ub7ec \ud574\uacb0"}')}}]);
