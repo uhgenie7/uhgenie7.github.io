@@ -1,6 +1,6 @@
 # 지니의 개발 블로그
 
-이 블로그는 [Docusaurus 2](https://docusaurus.io/)로 만들어졌습니다.
+이 블로그는 [Docusaurus 3](https://docusaurus.io/)로 만들어졌습니다.
 
 ## 주소
 
