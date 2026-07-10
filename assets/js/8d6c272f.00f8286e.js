@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[6104],{5855:e=>{e.exports=JSON.parse('{"label":"eslint","permalink":"/blog/tags/eslint","allTagsPath":"/blog/tags","count":1}')}}]);

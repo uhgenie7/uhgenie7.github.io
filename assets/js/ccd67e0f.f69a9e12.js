@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkgenie_log=self.webpackChunkgenie_log||[]).push([[744],{4567:e=>{e.exports=JSON.parse('{"label":"pre-commit","permalink":"/blog/tags/pre-commit","allTagsPath":"/blog/tags","count":1}')}}]);

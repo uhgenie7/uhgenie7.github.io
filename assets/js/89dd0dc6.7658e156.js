@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkgenie_log=globalThis.webpackChunkgenie_log||[]).push([[7785],{5235(e){e.exports=JSON.parse('{"metadata":{"permalink":"/fixed","page":1,"postsPerPage":10,"totalPages":2,"totalCount":12,"nextPage":"/fixed/page/2","blogDescription":"\uc5d0\ub7ec \ud574\uacb0 \uae30\ub85d","blogTitle":"\uc5d0\ub7ec \ud574\uacb0"}}')}}]);

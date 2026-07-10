@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkgenie_log=globalThis.webpackChunkgenie_log||[]).push([[2495],{8682(e){e.exports=JSON.parse('{"blogBasePath":"/fixed","blogTitle":"\uc5d0\ub7ec \ud574\uacb0","authorsListPath":"/fixed/authors"}')}}]);
