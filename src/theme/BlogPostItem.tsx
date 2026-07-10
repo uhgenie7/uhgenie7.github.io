@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import OriginalBlogPostItem from '@theme-original/BlogPostItem';
-// @ts-expect-error internal code
-import { useBlogPost } from '@docusaurus/theme-common/internal';
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
 import { useColorMode } from '@docusaurus/theme-common';
 
 const utterancesSelector = 'iframe.utterances-frame';
